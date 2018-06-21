@@ -1,60 +1,98 @@
 package bookmarks;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.ResourceSupport;
+import org.springframework.hateoas.Resources;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.Collection;
+import java.util.stream.Collectors;
+
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 @RestController
-@RequestMapping("/{userId}/bookmarks")
-public class BookmarkRestController {
+class BookmarkRestController {
+
     private final AccountRepository accountRepository;
     private final BookmarkRepository bookmarkRepository;
 
-    @Autowired
     BookmarkRestController(BookmarkRepository bookmarkRepository, AccountRepository accountRepository) {
         this.bookmarkRepository = bookmarkRepository;
         this.accountRepository = accountRepository;
     }
 
-    @PostMapping
+    @PostMapping("/{userId}/bookmarks")
     ResponseEntity<?> add(@PathVariable String userId, @RequestBody Bookmark input) {
+
         this.validateUser(userId);
-        return this.accountRepository.findByUsername(userId).map(account -> {
-            Bookmark result = bookmarkRepository.save(new Bookmark(account, input.getUri(), input.getDescription()));
 
-            URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-                                                      .path("/{id}")
-                                                      .buildAndExpand(result.getId())
-                                                      .toUri();
-
-            return ResponseEntity.created(location).build();
-        }).orElse(ResponseEntity.noContent().build());
-
+        return accountRepository.findByUsername(userId)
+                                .map(account -> ResponseEntity.created(URI.create(new BookmarkResource(bookmarkRepository
+                                        .save(Bookmark.from(account, input))).getLink("self")
+                                                                             .getHref()))
+                                                              .build())
+                                .orElse(ResponseEntity.noContent().build());
     }
 
-    @GetMapping("/{bookmarkId}")
-    Bookmark readBookmark(@PathVariable String userId, @PathVariable Long bookmarkId) {
+    /**
+     * Find a single bookmark and transform it into a {@link BookmarkResource}.
+     *
+     * @param userId
+     * @param bookmarkId
+     * @return
+     */
+    @RequestMapping(path = "/{userId}/bookmarks/{bookmarkId}", method = RequestMethod.GET, produces = {
+            MediaType.APPLICATION_JSON_VALUE, "application/hal+json"
+    })
+    BookmarkResource readBookmark(@PathVariable String userId, @PathVariable Long bookmarkId) {
         this.validateUser(userId);
 
         return this.bookmarkRepository.findById(bookmarkId)
+                                      .map(BookmarkResource::new)
                                       .orElseThrow(() -> new BookmarkNotFoundException(bookmarkId));
     }
 
-    @GetMapping
-    Collection<Bookmark> readBookmarks(@PathVariable String userId) {
+    @RequestMapping(path = "/{userId}/bookmarks", method = RequestMethod.GET, produces = {
+            MediaType.APPLICATION_JSON_VALUE, "application/hal+json"
+    })
+    Resources<BookmarkResource> readBookmarks(@PathVariable String userId) {
+
         this.validateUser(userId);
-        return this.bookmarkRepository.findByAccountUsername(userId);
+
+        return new Resources<>(bookmarkRepository.findByAccountUsername(userId)
+                                                 .stream()
+                                                 .map(BookmarkResource::new)
+                                                 .collect(Collectors.toList()));
     }
 
+    @RequestMapping(method = RequestMethod.GET, produces = {
+            MediaType.APPLICATION_JSON_VALUE, "application/hal+json"
+    })
+    ResourceSupport root() {
+        ResourceSupport root = new ResourceSupport();
+
+        root.add(accountRepository.findAll()
+                                  .stream()
+                                  .map(account -> linkTo(methodOn(BookmarkRestController.class)
+                                          .readBookmarks(account.getUsername()))
+                                          .withRel(account.getUsername()))
+                                  .collect(Collectors.toList()));
+
+        return root;
+    }
+
+    /**
+     * Verify the {@literal userId} exists.
+     *
+     * @param userId
+     */
     private void validateUser(String userId) {
         this.accountRepository.findByUsername(userId)
                               .orElseThrow(() -> new UserNotFoundException(userId));
