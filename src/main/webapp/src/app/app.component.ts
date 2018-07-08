@@ -8,19 +8,20 @@ import {AppService} from "./app.service";
 })
 export class AppComponent {
   welcome: string;
-  messages = <any>{};
+  messages: Object = {};
   language: string = "en";
 
   constructor(private  app: AppService) {
-    // TODO: url from combo list
     // TODO: use angular i18n
+    // TODO: work with bootstrap 3
+    // TODO: https context
     this.switchLanguage();
   }
 
   switchLanguage() {
-    this.app.switchLanguage(this.language, (messages) => {
+    this.app.switchLanguage(this.language).then((messages => {
       this.messages = messages;
       this.welcome = messages["welcome"];
-    });
+    }));
   }
 }
