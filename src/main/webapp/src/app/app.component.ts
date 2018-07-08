@@ -14,7 +14,6 @@ export class AppComponent {
   constructor(private  app: AppService) {
     // TODO: use angular i18n
     // TODO: work with bootstrap 3
-    // TODO: https context
     this.switchLanguage();
   }
 
