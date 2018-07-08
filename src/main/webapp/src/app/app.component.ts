@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {AppService} from "./app.service";
 
 @Component({
   selector: 'app-root',
@@ -8,14 +8,19 @@ import {HttpClient} from "@angular/common/http";
 })
 export class AppComponent {
   welcome: string;
-  language = <any>{};
+  messages = <any>{};
+  language: string = "en";
 
-  constructor(private  http: HttpClient) {
+  constructor(private  app: AppService) {
     // TODO: url from combo list
-    http.get("?language=es", {headers: {"X-Requested-With": "XMLHttpRequest"}}).subscribe(data => {
-        this.language = data;
-        this.welcome = data["welcome"];
-      }
-    );
+    // TODO: use angular i18n
+    this.switchLanguage();
+  }
+
+  switchLanguage() {
+    this.app.switchLanguage(this.language, (messages) => {
+      this.messages = messages;
+      this.welcome = messages["welcome"];
+    });
   }
 }
