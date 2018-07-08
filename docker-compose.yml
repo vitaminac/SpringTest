@@ -1,0 +1,58 @@
+version: "3.6"
+services:
+#  webchat:
+#    build: ./
+#    networks:
+#      - frontend
+#    depends_on:
+#      - postgres
+#      - redis
+
+  # https://hub.docker.com/r/_/postgres/
+  postgres:
+    # replace username/repo:tag with your name and image details
+    image: postgres
+    ports:
+      # This image includes EXPOSE 5432 (the postgres port), so standard container linking will make it automatically available to the linked containers.
+      - "5432:5432"
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      # it will run any *.sql files, run any executable *.sh scripts, and source any non-executable *.sh scripts found in /docker-entrypoint-initdb.sql.d to do further initialization before starting the service
+      - type: bind
+        source: ./initdb/
+        target: /docker-entrypoint-initdb.d
+        read_only: true
+#      - type: volume
+#        source: dbdata
+#        target: /var/lib/postgresql/data
+      - type: volume
+        source: logs
+        target: /logs
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    networks:
+      - backend
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    networks:
+      - backend
+
+volumes:
+  dbdata:
+  logs:
+
+
+networks:
+  frontend:
+  backend:
