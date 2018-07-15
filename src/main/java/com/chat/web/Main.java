@@ -22,8 +22,11 @@ public class Main {
         return MultiLanguageSupport.getLanguage(language);
     }
 
-    @GetMapping(value = "/{path:[^\\.]*}")
-    public String redirect() {
+    /**
+     * forward all requests to SPA
+     */
+    @GetMapping(value = "/{path:[^\\.]+}/**")
+    public String forwardSPA() {
         return "forward:/";
     }
 }
