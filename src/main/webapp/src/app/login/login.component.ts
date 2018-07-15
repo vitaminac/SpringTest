@@ -34,11 +34,11 @@ export class LoginComponent implements OnInit {
     return this.mode == Mode.Login;
   }
 
-  login() {
+  loginOrRegister() {
     if (this.isLoginMode()) {
-
+      // TODO: implement
     } else {
-      this.auth.createNewUser({"username": this._username, "password": this._password});
+      this.auth.register({"username": this._username, "password": this._password});
     }
   }
 

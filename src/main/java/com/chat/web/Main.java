@@ -1,7 +1,6 @@
 package com.chat.web;
 
-import com.chat.web.utils.MultiLanguageSupport;
-import com.chat.web.utils.MultiLanguageSupport.Language;
+import com.chat.web.model.language.Language;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
@@ -16,17 +15,17 @@ public class Main {
         SpringApplication.run(Main.class, args);
     }
 
-    @GetMapping(value = "/", headers = {"X-Requested-With=XMLHttpRequest"})
-    @ResponseBody
-    public Language getLanguage(@RequestParam(value = "language", defaultValue = "en") String language) {
-        return MultiLanguageSupport.getLanguage(language);
-    }
-
     /**
      * forward all requests to SPA
      */
     @GetMapping(value = "/{path:[^\\.]+}/**")
     public String forwardSPA() {
         return "forward:/";
+    }
+
+    @GetMapping(value = "/", headers = {"X-Requested-With=XMLHttpRequest"})
+    @ResponseBody
+    public Language getLanguage(@RequestParam(value = "language", defaultValue = "en") String language) {
+        return Language.getLanguage(language);
     }
 }

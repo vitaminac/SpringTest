@@ -11,7 +11,7 @@ export class AuthService {
 
   }
 
-  async createNewUser(user) {
+  async register(user) {
     return this.http.post("/user", user, {
       headers: {
         "X-Requested-With": "XMLHttpRequest"

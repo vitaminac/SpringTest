@@ -7,7 +7,7 @@ import {TranslateService} from "./translate.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  language : string = "en";
+  language: string = "en";
 
   constructor(private translate: TranslateService) {
     // TODO: use angular i18n

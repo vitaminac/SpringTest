@@ -29,7 +29,7 @@ button:hover {
   float: right;
 }
 
-#register {
+#switchMode {
   cursor: pointer;
   color: blue;
   text-decoration: underline;

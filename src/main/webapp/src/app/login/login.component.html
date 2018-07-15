@@ -12,7 +12,7 @@
   </label>
   <a id="recover" *ngIf="isLoginMode()" href="#">Forgot password?</a>
 
-  <button (click)="login()" type="submit">Login</button>
+  <button (click)="loginOrRegister()" type="submit">{{ (isLoginMode()?"login":"register") | translate }}</button>
 
-  <span id="register" (click)="toggleMode()">Register</span>
+  <span id="switchMode" (click)="toggleMode()">{{ (isLoginMode()?"register":"login") | translate }}</span>
 </form>
