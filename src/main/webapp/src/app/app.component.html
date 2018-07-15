@@ -1,13 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    {{ welcome }}!
+    {{ 'welcome' | translate }}!
   </h1>
 </div>
 <form>
   <label for="language">language:</label>
   <select name="switchLan" id="language" [(ngModel)]="language" (change)="switchLanguage()">
-    <option value="en">English</option>
+    <option selected="selected" value="en">English</option>
     <option value="es">Spanish</option>
   </select>
 </form>

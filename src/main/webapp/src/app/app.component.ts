@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {AppService} from "./app.service";
+import {TranslateService} from "./translate.service";
 
 @Component({
   selector: 'app-root',
@@ -7,20 +7,14 @@ import {AppService} from "./app.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  welcome: string;
-  messages: Object = {};
-  language: string = "en";
+  language : string = "en";
 
-  constructor(private  app: AppService) {
+  constructor(private translate: TranslateService) {
     // TODO: use angular i18n
     // TODO: work with bootstrap 3
-    this.switchLanguage();
   }
 
-  switchLanguage() {
-    this.app.switchLanguage(this.language).then((messages => {
-      this.messages = messages;
-      this.welcome = messages["welcome"];
-    }));
+  async switchLanguage() {
+    await this.translate.switch(this.language);
   }
 }
