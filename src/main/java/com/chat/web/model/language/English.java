@@ -1,13 +1,10 @@
 package com.chat.web.model.language;
 
 public class English implements Language {
-    private static final Language instance = new English();
-
-    public static Language getInstance() {
-        return instance;
+    @Override
+    public String getId() {
+        return "en";
     }
-
-    private English() { }
 
     @Override
     public String getLanguageName() {

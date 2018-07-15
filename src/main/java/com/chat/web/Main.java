@@ -5,6 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import static com.chat.web.configuration.PathMappingConstants.ForwardToRootPath;
+import static com.chat.web.configuration.PathMappingConstants.MatchesAllPath;
+
 @SpringBootApplication
 @Controller
 public class Main {
@@ -15,8 +18,8 @@ public class Main {
     /**
      * forward all requests to SPA
      */
-    @GetMapping(value = "/{path:[^\\.]+}/**")
+    @GetMapping(value = MatchesAllPath)
     public String forwardSPA() {
-        return "forward:/";
+        return ForwardToRootPath;
     }
 }

@@ -11,7 +11,7 @@ export class TranslateService {
 
   async switch(lang: string) {
     if (this.languages.get(lang) == null) {
-      let data: Object = await this.http.get("?language=" + lang, {headers: {"X-Requested-With": "XMLHttpRequest"}}).toPromise();
+      let data: Object = await this.http.get("/languages/" + lang, {headers: {"X-Requested-With": "XMLHttpRequest"}}).toPromise();
       this.languages.set(lang, data);
     }
     this.translated = this.languages.get(lang);

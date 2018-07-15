@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
+import static com.chat.web.configuration.Constants.XMLHttpRequest;
+import static com.chat.web.configuration.PathMappingConstants.UserMappingPath;
+
 @RestController
-@RequestMapping(value = "/user", headers = {"X-Requested-With=XMLHttpRequest"})
+@RequestMapping(value = UserMappingPath, headers = {XMLHttpRequest})
 public class UserController {
     private UserRepository repo;
 

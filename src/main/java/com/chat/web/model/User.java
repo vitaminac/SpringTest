@@ -9,8 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import static com.chat.web.configuration.TableNameConstants.UserTableName;
+
 @Entity
-@Table(name = "users")
+@Table(name = UserTableName)
 public class User {
     @Id
     @Getter
