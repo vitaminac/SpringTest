@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 
 @Injectable()
-export class LoginService {
+export class AuthService {
   constructor(private http: HttpClient) {
 
   }
@@ -17,5 +17,10 @@ export class LoginService {
         "X-Requested-With": "XMLHttpRequest"
       }
     }).toPromise();
+  }
+
+  isLogon(): Promise<boolean> {
+    // TODO: Check that the user is logged in...
+    return Promise.resolve(false);
   }
 }

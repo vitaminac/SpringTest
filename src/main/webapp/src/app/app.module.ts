@@ -6,24 +6,29 @@ import {HttpClientModule} from "@angular/common/http";
 import {AppService} from "./app.service";
 import {FormsModule} from "@angular/forms";
 import {RouterModule, Routes} from "@angular/router";
-import {LoginComponent} from "./login.component";
-import {PageNotFoundComponent} from "./404.component";
+import {LoginComponent} from "./login/login.component";
+import {AuthService} from "./auth.service";
+import {LibraryComponent} from './library/library.component';
+import {AccessGuard} from "./guards/access.guard";
+import {ErrorComponent} from './error/error.component';
 
 const appRoutes: Routes = [
-  // TODO: redirect to chat
-  // { path: '',
-  //   redirectTo: '/heroes',
-  //   pathMatch: 'full'
-  // },
+  {
+    path: '',
+    redirectTo: 'library',
+    pathMatch: 'full'
+  },
+  {path: "library", component: LibraryComponent, data: {requiresLogin: true}, canActivate: [AccessGuard]},
   {path: "login", component: LoginComponent},
-  {path: '**', component: PageNotFoundComponent}
+  {path: '**', component: ErrorComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    PageNotFoundComponent
+    LibraryComponent,
+    ErrorComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -34,7 +39,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [AppService],
+  providers: [AppService, AuthService, AccessGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

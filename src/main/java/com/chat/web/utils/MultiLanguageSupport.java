@@ -39,7 +39,6 @@ public class MultiLanguageSupport {
     }
 
     public static Language getLanguage(String lan) {
-        System.out.println(lan);
         final Language language = languages.get(lan);
         if (language == null) {
             return defaultLanguage;
