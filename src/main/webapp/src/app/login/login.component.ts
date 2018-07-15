@@ -38,24 +38,24 @@ export class LoginComponent implements OnInit {
     if (this.isLoginMode()) {
       // TODO: implement
     } else {
-      this.auth.register({"username": this._username, "password": this._password});
+      this.auth.register(this.username, this.password);
     }
   }
 
-  get password():string{
+  get password(): string {
     return this._password;
   }
 
-  set password(password:string){
+  set password(password: string) {
     // TODO: hash
-    this._password=password;
+    this._password = password;
   }
 
-  get username():string{
+  get username(): string {
     return this._username;
   }
 
-  set username(username:string){
+  set username(username: string) {
     this._username = username;
   }
 }

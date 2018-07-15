@@ -11,7 +11,8 @@ export class AuthService {
 
   }
 
-  async register(user) {
+  async register(username, password) {
+    const user: Object = {"username": username, "password": password};
     return this.http.post("/user", user, {
       headers: {
         "X-Requested-With": "XMLHttpRequest"
