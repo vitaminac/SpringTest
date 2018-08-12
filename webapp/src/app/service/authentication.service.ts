@@ -26,8 +26,12 @@ export class AuthenticationService {
     return this.http.post(this.api.usersApi, user).subscribe((r => this.login(username, password)));
   }
 
-  isLogon(): Promise<boolean> {
+  isLoggedIn(): Promise<boolean> {
     // TODO: Check that the user is logged in...
     return Promise.resolve(false);
+  }
+
+  logout() {
+    // TODO:implementation
   }
 }

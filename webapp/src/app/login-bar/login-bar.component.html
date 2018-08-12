@@ -1,0 +1,14 @@
+<nav>
+  <ul>
+    <ng-container *ngIf="isLoggedIn | async; then loggedIn; else loggedOut">
+    </ng-container>
+
+    <ng-template #loggedIn>
+      <li><a (click)="logout()">{{"Logout" | translate}}</a></li>
+    </ng-template>
+
+    <ng-template #loggedOut>
+      <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
+    </ng-template>
+  </ul>
+</nav>

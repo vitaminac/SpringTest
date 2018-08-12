@@ -17,6 +17,7 @@ import {XhrInterceptor} from "./interceptor/xhr.interceptor";
 import {ApiInterceptor} from "./interceptor/api.interceptor";
 import {windowProvider} from "./config/window.provider";
 import {WINDOW} from "./config/inject.token";
+import { LoginBarComponent } from './login-bar/login-bar.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {WINDOW} from "./config/inject.token";
     LoginComponent,
     HomeComponent,
     ErrorComponent,
-    TranslatePipe
+    TranslatePipe,
+    LoginBarComponent
   ],
   imports: [
     AppRoutingModule,
