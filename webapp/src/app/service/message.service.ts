@@ -1,14 +1,11 @@
-import {Injectable, OnInit} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
+import {TranslationService} from "./translation.service";
 
-@Injectable({
-  providedIn: 'root'
-})
 export class MessageService {
   subject: BehaviorSubject<string>;
 
-  constructor() {
-    this.subject = new BehaviorSubject<string>("Welcome");
+  constructor(private translation: TranslationService) {
+    this.subject = new BehaviorSubject<string>(this.translation.Welcome);
   }
 
   add(message: string): void {
