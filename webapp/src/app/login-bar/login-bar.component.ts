@@ -8,6 +8,7 @@ import {AuthenticationService} from "../service/authentication.service";
 })
 export class LoginBarComponent implements OnInit {
 
+  // TODO: async pipe
   constructor(private auth: AuthenticationService) {
   }
 
@@ -18,7 +19,7 @@ export class LoginBarComponent implements OnInit {
     this.auth.logout();
   }
 
-  isLoggedIn(): Promise<boolean> {
-    return this.auth.isLoggedIn();
+  get authenticated(): boolean {
+    return this.auth.authenticated;
   }
 }

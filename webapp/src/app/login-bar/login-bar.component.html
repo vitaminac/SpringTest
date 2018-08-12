@@ -1,6 +1,6 @@
 <nav>
   <ul>
-    <ng-container *ngIf="isLoggedIn | async; then loggedIn; else loggedOut">
+    <ng-container *ngIf="authenticated; then loggedIn; else loggedOut">
     </ng-container>
 
     <ng-template #loggedIn>
