@@ -34,13 +34,16 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-security')
     compile("org.springframework.boot:spring-boot-devtools")
 
+    //providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+
     runtime('org.postgresql:postgresql')
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile group: 'junit', name: 'junit', version: '4.12'
 
     // https://mvnrepository.com/artifact/org.projectlombok/lombok
-    compileOnly "org.projectlombok:lombok:1.16.16"
+    annotationProcessor("org.projectlombok:lombok:1.16.20")
+    compileOnly "org.projectlombok:lombok:1.16.20"
 }
 
 tasks.withType(JavaCompile) {
