@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
 
   loginOrRegister() {
     if (this.isLoginMode()) {
-      // TODO: implement
+      this.auth.login(this.username, this.password);
     } else {
       this.auth.register(this.username, this.password);
     }
