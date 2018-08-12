@@ -1,0 +1,10 @@
+<app-messages></app-messages>
+<form>
+  <label for="languages">language:</label>
+  <select name="languages" id="languages" [ngModel]="language" (change)="switchLanguage()">
+    <option *ngFor="let key of keys" [value]="key">{{languages[key]}}</option>
+  </select>
+</form>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

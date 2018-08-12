@@ -1,0 +1,18 @@
+<form class="container">
+  <label for="uname"><b>Username</b></label>
+  <input type="text" placeholder="Enter Username" [(ngModel)]="username" id="uname" name="username"
+         required>
+
+  <label for="psw"><b>{{"Password" | translate}}</b></label>
+  <input type="password" placeholder="Enter Password" id="psw" [(ngModel)]="password"
+         name="password" required>
+
+  <label>
+    <input type="checkbox" checked="checked" name="remember"> Remember me
+  </label>
+  <a id="recover" *ngIf="isLoginMode()" href="#">Forgot password?</a>
+
+  <button (click)="loginOrRegister()" type="submit">{{ (isLoginMode()?"Log in":"Register") | translate }}</button>
+
+  <span id="switchMode" (click)="toggleMode()">{{ (isLoginMode()?"Register":"Log in") | translate }}</span>
+</form>
