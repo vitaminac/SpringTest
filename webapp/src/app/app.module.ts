@@ -17,7 +17,9 @@ import {XhrInterceptor} from "./interceptor/xhr.interceptor";
 import {ApiInterceptor} from "./interceptor/api.interceptor";
 import {windowProvider} from "./config/window.provider";
 import {WINDOW} from "./config/inject.token";
-import { LoginBarComponent } from './login-bar/login-bar.component';
+import {LoginBarComponent} from './login-bar/login-bar.component';
+import {TranslationService} from "./service/translation.service";
+import {MessageService} from "./service/message.service";
 
 
 @NgModule({
@@ -39,13 +41,6 @@ import { LoginBarComponent } from './login-bar/login-bar.component';
   ],
   providers: [
     windowProvider,
-    ApiService,
-    {
-      provide: APP_INITIALIZER,
-      useFactory: apiSetup,
-      deps: [ApiService],
-      multi: true
-    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: XhrInterceptor,
@@ -57,6 +52,18 @@ import { LoginBarComponent } from './login-bar/login-bar.component';
       multi: true,
       // Token that we want to inject into
       deps: [WINDOW]
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: apiSetup,
+      deps: [ApiService],
+      multi: true
+    },
+    TranslationService,
+    {
+      provide: MessageService,
+      useClass: MessageService,
+      deps: [TranslationService]
     }
   ],
   bootstrap: [AppComponent]
