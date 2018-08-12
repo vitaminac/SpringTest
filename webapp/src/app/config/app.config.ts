@@ -8,5 +8,6 @@ export class AppConfig {
   public static API_ENDPOINT_PORT = 443;
   public static API = "api";
   public static LOGIN: string = "login";
+  public static LOGOUT: string = "logout";
   public static USERS: string = "users";
 }
