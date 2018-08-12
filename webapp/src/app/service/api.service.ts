@@ -3,7 +3,9 @@ import {HttpClient} from "@angular/common/http";
 import {map} from "rxjs/operators";
 import {AppConfig} from "../config/app.config";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ApiService {
   private api: Object;
 
@@ -17,6 +19,10 @@ export class ApiService {
 
   get LoginApi() {
     return this.api[AppConfig.LOGIN];
+  }
+
+  get LogoutApi() {
+    return this.api[AppConfig.LOGOUT];
   }
 
   async load(): Promise<any> {
