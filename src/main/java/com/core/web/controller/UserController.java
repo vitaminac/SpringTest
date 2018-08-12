@@ -28,6 +28,7 @@ public class UserController {
         this.repo = repo;
     }
 
+    // TODO: @ApiController register
     @PostMapping
     public ResponseEntity<User> register(@Valid @RequestBody final User user) {
         // TODO: prohibit create user when there is already one with same username
