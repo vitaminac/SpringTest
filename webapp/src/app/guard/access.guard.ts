@@ -16,17 +16,13 @@ export class AccessGuard implements CanActivate {
     const requiresLogin: boolean = route.data.requiresLogin || false;
     if (requiresLogin) {
       return new Promise((resolve, reject) => {
-        this.auth.isLoggedIn().then((answer: boolean) => {
-          if (answer) {
-            resolve(true);
-          } else {
-            this.router.navigate(["/login"]);
-            resolve(false);
-          }
-        }, (reason) => {
-          reject(reason);
-        });
-      });
+        if (this.auth.authenticated) {
+          resolve(true);
+        } else {
+          this.router.navigate(["/login"]);
+          resolve(false);
+        }
+      })
     }
     return true;
   }
