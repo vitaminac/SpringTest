@@ -13,6 +13,10 @@ export class ApiService {
   constructor(private http: HttpClient) {
   }
 
+  get RegisterApi(): string {
+    return this.api[AppConfig.REGISTER];
+  }
+
   get usersApi() {
     return this.api[AppConfig.USERS];
   }
@@ -26,6 +30,6 @@ export class ApiService {
   }
 
   async load(): Promise<any> {
-    return this.http.get<Object>("/").pipe(map((data) => this.api = data)).toPromise();
+    return this.http.get("/").pipe(map((data) => this.api = data)).toPromise();
   }
 }

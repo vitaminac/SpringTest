@@ -10,4 +10,5 @@ export class AppConfig {
   public static LOGIN: string = "login";
   public static LOGOUT: string = "logout";
   public static USERS: string = "users";
+  public static REGISTER: string = "register";
 }

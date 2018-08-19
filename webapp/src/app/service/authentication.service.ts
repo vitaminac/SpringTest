@@ -21,9 +21,9 @@ export class AuthenticationService implements OnInit {
 
   login(credential: CredentialDTO, callback?: () => void): void {
     this.credentialsHeader = new HttpHeaders((credential) ? {
-      authorization: 'Basic ' + btoa(credential.username + ':' + credential.password)
+      "Authorization": 'Basic ' + btoa(credential.username + ':' + credential.password)
     } : {});
-    this.http.get(this.api.usersApi, {headers: this.credentialsHeader}).subscribe(response => {
+    this.http.get(this.api.LoginApi, {headers: this.credentialsHeader}).subscribe(response => {
       if (response['name']) {
         this._authenticated = true;
       } else {
@@ -37,7 +37,7 @@ export class AuthenticationService implements OnInit {
   register(credential: CredentialDTO, callback?: () => void): void {
     // TODO: api url /api/register
     // TODO:credentials DTO
-    this.http.post(this.api.usersApi, credential).subscribe(r => this.login(credential, callback));
+    this.http.post(this.api.RegisterApi, credential).subscribe(r => this.login(credential, callback));
   }
 
   get authenticated(): boolean {

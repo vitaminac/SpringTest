@@ -9,7 +9,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.core.web.util.PathMappingConstants.API_BASE_PATH;
-import static com.core.web.util.PathMappingConstants.LogputMappingPath;
+import static com.core.web.util.PathMappingConstants.LoginMappingPath;
+import static com.core.web.util.PathMappingConstants.LogoutMappingPath;
+import static com.core.web.util.PathMappingConstants.RegisterMappingPath;
 import static com.core.web.util.PathMappingConstants.UserMappingPath;
 import static com.core.web.util.StaticPathConstants.MatchesAllPath;
 
@@ -20,7 +22,9 @@ public class DefaultController {
     static {
         API_MAP = new HashMap<>();
         API_MAP.put("users", UserMappingPath);
-        API_MAP.put("logout", LogputMappingPath);
+        API_MAP.put("login", LoginMappingPath);
+        API_MAP.put("logout", LogoutMappingPath);
+        API_MAP.put("register", RegisterMappingPath);
     }
 
     /**
