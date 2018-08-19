@@ -1,5 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {AuthenticationService} from "../service/authentication.service";
+import {CredentialDTO} from "../model/credentialDTO";
 
 enum Mode {
   CreateNew,
@@ -12,8 +13,7 @@ enum Mode {
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  private _username: string;
-  private _password: string;
+  private credential: CredentialDTO = {username: "", password: ""};
   private mode: Mode = Mode.Login;
 
   constructor(private auth: AuthenticationService) {
@@ -36,26 +36,26 @@ export class LoginComponent implements OnInit {
 
   loginOrRegister() {
     if (this.isLoginMode()) {
-      this.auth.login(this.username, this.password);
+      this.auth.login(this.credential);
     } else {
-      this.auth.register(this.username, this.password);
+      this.auth.register(this.credential);
     }
   }
 
   get password(): string {
-    return this._password;
+    return this.credential.password;
   }
 
   set password(password: string) {
     // TODO: hash
-    this._password = password;
+    this.credential.password = password;
   }
 
   get username(): string {
-    return this._username;
+    return this.credential.username;
   }
 
   set username(username: string) {
-    this._username = username;
+    this.credential.username = username;
   }
 }

@@ -2,6 +2,7 @@ import {Injectable, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {ApiService} from "./api.service";
 import {finalize} from "rxjs/operators";
+import {CredentialDTO} from "../model/credentialDTO";
 
 @Injectable({
   providedIn: 'root'
@@ -18,9 +19,9 @@ export class AuthenticationService implements OnInit {
 
   }
 
-  login(username: string, password: string, callback?: () => void): void {
-    this.credentialsHeader = new HttpHeaders((username && password) ? {
-      authorization: 'Basic ' + btoa(username + ':' + password)
+  login(credential: CredentialDTO, callback?: () => void): void {
+    this.credentialsHeader = new HttpHeaders((credential) ? {
+      authorization: 'Basic ' + btoa(credential.username + ':' + credential.password)
     } : {});
     this.http.get('user', {headers: this.credentialsHeader}).subscribe(response => {
       if (response['name']) {
@@ -33,11 +34,10 @@ export class AuthenticationService implements OnInit {
     });
   }
 
-  register(username: string, password: string, callback?: () => void): void {
+  register(credential: CredentialDTO, callback?: () => void): void {
     // TODO: api url /api/register
     // TODO:credentials DTO
-    const user: Object = {"username": username, "password": password};
-    this.http.post(this.api.usersApi, user).subscribe(r => this.login(username, password, callback));
+    this.http.post(this.api.usersApi, credential).subscribe(r => this.login(credential, callback));
   }
 
   get authenticated(): boolean {
