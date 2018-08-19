@@ -32,6 +32,7 @@ public class UserController {
     @PostMapping(RegisterMappingPath)
     public ResponseEntity<User> register(@Valid @RequestBody final User user) {
         // TODO: prohibit create user when there is already one with same username
+        // TODO: hash
         final User newUser = this.repo.save(user);
         return ResponseEntity.ok().body(newUser);
     }
