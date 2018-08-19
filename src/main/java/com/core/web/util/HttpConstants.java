@@ -1,10 +1,14 @@
 package com.core.web.util;
 
 public class HttpConstants {
-    public static final String X_Requested_With = "X-Requested-With";
-    public static final String Content_Type = "Content-Type";
-    public static final String XMLHttpRequest = "X-Requested-With=XMLHttpRequest";
-    public static final String XSRFProtectionHeader = "X-XSRF-TOKEN";
+    // Headers
+    public static final String AUTHORIZATION = "Authorization";
+    public static final String X_REQUESTED_WITH = "X-Requested-With";
+    public static final String CONTENT_TYPE = "Content-Type";
+    public static final String XML_HTTP_REQUEST = "X-Requested-With=XMLHttpRequest";
+    public static final String X_XSRF_TOKEN = "X-XSRF-TOKEN";
+
+    // Methods
     public static final String POST = "POST";
     public static final String GET = "GET";
     public static final String OPTIONS = "OPTIONS";
