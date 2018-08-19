@@ -23,7 +23,7 @@ export class AuthenticationService implements OnInit {
     this.credentialsHeader = new HttpHeaders((credential) ? {
       authorization: 'Basic ' + btoa(credential.username + ':' + credential.password)
     } : {});
-    this.http.get('user', {headers: this.credentialsHeader}).subscribe(response => {
+    this.http.get(this.api.usersApi, {headers: this.credentialsHeader}).subscribe(response => {
       if (response['name']) {
         this._authenticated = true;
       } else {

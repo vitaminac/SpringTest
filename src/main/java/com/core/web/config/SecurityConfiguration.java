@@ -31,7 +31,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, IndexMappingPath, FilterAllJavaScript,
                         FilterAllStyleSheet, FaviconIconMappingPath, FilterLanguagesMappingPath)
                 .permitAll();
-        http.authorizeRequests().mvcMatchers(HttpMethod.GET, RootMappingPath, API_BASE_PATH, LoginMappingPath).permitAll();
+        http.authorizeRequests().mvcMatchers(HttpMethod.GET, RootMappingPath, API_BASE_PATH, LoginMappingPath, API_BASE_PATH + UserMappingPath).permitAll();
         http.authorizeRequests().mvcMatchers(HttpMethod.POST, API_BASE_PATH + UserMappingPath).permitAll();
 
         http.authorizeRequests().anyRequest().authenticated();

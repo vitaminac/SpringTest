@@ -11,12 +11,13 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static com.core.web.util.HttpConstants.Content_Type;
+import static com.core.web.util.HttpConstants.AUTHORIZATION;
+import static com.core.web.util.HttpConstants.CONTENT_TYPE;
 import static com.core.web.util.HttpConstants.GET;
 import static com.core.web.util.HttpConstants.OPTIONS;
 import static com.core.web.util.HttpConstants.POST;
 import static com.core.web.util.HttpConstants.PUT;
-import static com.core.web.util.HttpConstants.X_Requested_With;
+import static com.core.web.util.HttpConstants.X_REQUESTED_WITH;
 import static com.core.web.util.StaticPathConstants.CrossOriginDomain;
 
 
@@ -33,7 +34,7 @@ public class FilterCORS implements Filter {
         httpServletResponse.setHeader("Access-Control-Allow-Origin", CrossOriginDomain);
         httpServletResponse.setHeader("Access-Control-Allow-Methods", String.join(", ", POST, GET, OPTIONS, PUT));
         httpServletResponse.setHeader("Access-Control-Max-Age", "3600");
-        httpServletResponse.setHeader("Access-Control-Allow-Headers", String.join(", ", X_Requested_With, Content_Type));
+        httpServletResponse.setHeader("Access-Control-Allow-Headers", String.join(", ", X_REQUESTED_WITH, CONTENT_TYPE, AUTHORIZATION));
         chain.doFilter(request, response);
 
     }

@@ -2,7 +2,6 @@ package com.core.web.controller;
 
 import com.core.web.util.PathMappingConstants;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -12,7 +11,6 @@ import java.util.Map;
 import static com.core.web.util.PathMappingConstants.API_BASE_PATH;
 import static com.core.web.util.PathMappingConstants.LogputMappingPath;
 import static com.core.web.util.PathMappingConstants.UserMappingPath;
-import static com.core.web.util.StaticPathConstants.CrossOriginDomain;
 import static com.core.web.util.StaticPathConstants.MatchesAllPath;
 
 @Controller
@@ -35,7 +33,6 @@ public class DefaultController {
 
     @GetMapping(value = API_BASE_PATH)
     @ResponseBody
-    @CrossOrigin(origins = CrossOriginDomain)
     public Map<String, String> navigation() {
         return API_MAP;
     }
