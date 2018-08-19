@@ -6,6 +6,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
@@ -21,6 +22,7 @@ import static com.core.web.util.StaticPathConstants.RootMappingPath;
 
 @Configuration
 @Order(SecurityProperties.IGNORED_ORDER)
+@EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -28,7 +30,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers(HttpMethod.GET, IndexMappingPath, FilterAllJavaScript,
                         FilterAllStyleSheet, FaviconIconMappingPath, FilterLanguagesMappingPath)
-                .permitAll().and().authorizeRequests();
+                .permitAll();
         http.authorizeRequests().mvcMatchers(HttpMethod.GET, RootMappingPath, API_BASE_PATH, LoginMappingPath).permitAll();
         http.authorizeRequests().mvcMatchers(HttpMethod.POST, API_BASE_PATH + UserMappingPath).permitAll();
 
