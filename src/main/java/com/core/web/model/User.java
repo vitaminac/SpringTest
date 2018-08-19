@@ -14,15 +14,18 @@ import static com.core.web.config.TableNameConstants.UserTableName;
 
 @Entity
 @Table(name = UserTableName)
-public class User {
+@Getter
+@Setter
+public class User { // TODO: implement UserDetail and add column role
     @Id
-    @Getter
-    @Setter
     private String username;
-
     @JsonIgnore
     @Column(nullable = false)
     private String password;
+
+    public String getUsername() {
+        return username;
+    }
 
     @JsonIgnore
     public String getPassword() {
