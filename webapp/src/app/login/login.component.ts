@@ -21,6 +21,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.auth.authenticated) {
+      this.goBack();
+    }
   }
 
   private goBack(): void {

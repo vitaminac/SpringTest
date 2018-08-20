@@ -1,5 +1,5 @@
-import {Injectable, OnInit} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Injectable} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 import {ApiService} from "./api.service";
 import {finalize} from "rxjs/operators";
 import {CredentialDTO} from "../model/credentialDTO";
@@ -8,10 +8,12 @@ import {CredentialService} from "./credential.service";
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenticationService implements OnInit {
-  private _authenticated = false;
+export class AuthenticationService {
+  private _authenticated: boolean;
 
   constructor(private http: HttpClient, private api: ApiService, private credential: CredentialService) {
+    // TODO: initialize only once when goBack
+    this.authenticate();
   }
 
   private authenticate(callback?: () => void): void {
@@ -49,9 +51,5 @@ export class AuthenticationService implements OnInit {
       this._authenticated = false;
       return callback && callback();
     }));
-  }
-
-  ngOnInit(): void {
-    this.authenticate();
   }
 }
