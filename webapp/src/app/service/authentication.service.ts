@@ -3,35 +3,34 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {ApiService} from "./api.service";
 import {finalize} from "rxjs/operators";
 import {CredentialDTO} from "../model/credentialDTO";
+import {CredentialService} from "./credential.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService implements OnInit {
-  private credentialsHeader;
   private _authenticated = false;
 
-  constructor(private http: HttpClient, private api: ApiService) {
-
+  constructor(private http: HttpClient, private api: ApiService, private credential: CredentialService) {
   }
 
-  authenticate() {
-
-  }
-
-  login(credential: CredentialDTO, callback?: () => void): void {
-    this.credentialsHeader = new HttpHeaders((credential) ? {
-      "Authorization": 'Basic ' + btoa(credential.username + ':' + credential.password)
-    } : {});
-    this.http.get(this.api.LoginApi, {headers: this.credentialsHeader}).subscribe(response => {
+  private authenticate(callback?: () => void): void {
+    this.http.get(this.api.LoginApi).subscribe(response => {
       if (response['name']) {
         this._authenticated = true;
+        this.credential.save();
       } else {
         this._authenticated = false;
+        this.credential.clear();
       }
       // TODO: navigate back to previous
       return callback && callback();
     });
+  }
+
+  login(credential: CredentialDTO, callback?: () => void): void {
+    this.credential.update(credential);
+    this.authenticate(callback);
   }
 
   register(credential: CredentialDTO, callback?: () => void): void {
@@ -53,6 +52,6 @@ export class AuthenticationService implements OnInit {
   }
 
   ngOnInit(): void {
-    // check if is login at started
+    this.authenticate();
   }
 }

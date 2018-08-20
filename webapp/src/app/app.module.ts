@@ -20,6 +20,8 @@ import {WINDOW} from "./config/inject.token";
 import {LoginBarComponent} from './login-bar/login-bar.component';
 import {TranslationService} from "./service/translation.service";
 import {MessageService} from "./service/message.service";
+import {CredentialService} from "./service/credential.service";
+import {AuthInterceptor} from "./interceptor/auth.interceptor";
 
 
 @NgModule({
@@ -52,6 +54,12 @@ import {MessageService} from "./service/message.service";
       multi: true,
       // Token that we want to inject into
       deps: [WINDOW]
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+      deps: [CredentialService]
     },
     {
       provide: APP_INITIALIZER,

@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {AuthenticationService} from "../service/authentication.service";
 import {CredentialDTO} from "../model/credentialDTO";
+import {Location} from '@angular/common';
 
 enum Mode {
   CreateNew,
@@ -16,10 +17,14 @@ export class LoginComponent implements OnInit {
   private credential: CredentialDTO = {username: "", password: ""};
   private mode: Mode = Mode.Login;
 
-  constructor(private auth: AuthenticationService) {
+  constructor(private auth: AuthenticationService, private location: Location) {
   }
 
   ngOnInit() {
+  }
+
+  private goBack(): void {
+    this.location.back();
   }
 
   toggleMode() {
@@ -36,9 +41,9 @@ export class LoginComponent implements OnInit {
 
   loginOrRegister() {
     if (this.isLoginMode()) {
-      this.auth.login(this.credential);
+      this.auth.login(this.credential, this.goBack.bind(this));
     } else {
-      this.auth.register(this.credential);
+      this.auth.register(this.credential, this.goBack.bind(this));
     }
   }
 
