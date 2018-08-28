@@ -9,4 +9,5 @@ public class PathMappingConstants {
     public static final String LanguageMappingPath = "/languages";
     public static final String API_BASE_PATH = "/api";
     public static final String TEST_PATH = "/test";
+    public static final String VIDEO_API = "/videos";
 }
