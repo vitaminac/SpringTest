@@ -19,7 +19,7 @@ export class CredentialService {
     this._credential = credential;
   }
 
-  clear() {
+  invalidate() {
     this._credential = null;
     sessionStorage.removeItem(CredentialService.STORAGE_KEY);
   }

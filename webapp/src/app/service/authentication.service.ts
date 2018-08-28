@@ -26,7 +26,7 @@ export class AuthenticationService {
         this.credential.save();
       } else {
         this._authenticated = false;
-        this.credential.clear();
+        this.credential.invalidate();
       }
       // TODO: navigate back to previous
       return callback && callback();
