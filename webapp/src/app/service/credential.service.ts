@@ -37,6 +37,10 @@ export class CredentialService {
     }
   }
 
+  hasCredential(): boolean {
+    return this._credential != null;
+  }
+
   private static get STORAGE_KEY(): string {
     return "credential";
   }

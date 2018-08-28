@@ -12,8 +12,11 @@ export class AuthenticationService {
   private _authenticated: boolean;
 
   constructor(private http: HttpClient, private api: ApiService, private credential: CredentialService) {
-    // TODO: initialize only once when goBack
-    this.authenticate();
+    if (this.credential.hasCredential()) {
+      this._authenticated = true;
+    } else {
+      this._authenticated = false;
+    }
   }
 
   private authenticate(callback?: () => void): void {
