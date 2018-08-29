@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.core.web.util.PathMappingConstants.API_BASE_PATH;
-import static com.core.web.util.PathMappingConstants.LoginMappingPath;
+import static com.core.web.util.PathMappingConstants.API_ENDPOINT;
+import static com.core.web.util.PathMappingConstants.LOGIN_ENDPOINT;
 import static com.core.web.util.PathMappingConstants.LogoutMappingPath;
-import static com.core.web.util.PathMappingConstants.RegisterMappingPath;
+import static com.core.web.util.PathMappingConstants.MatchesAllPath;
+import static com.core.web.util.PathMappingConstants.REGISTER_ENDPOINT;
 import static com.core.web.util.PathMappingConstants.UserMappingPath;
-import static com.core.web.util.StaticPathConstants.MatchesAllPath;
 
 @Controller
 public class DefaultController {
@@ -22,9 +22,10 @@ public class DefaultController {
     static {
         API_MAP = new HashMap<>();
         API_MAP.put("users", UserMappingPath);
-        API_MAP.put("login", LoginMappingPath);
+        API_MAP.put("login", LOGIN_ENDPOINT);
         API_MAP.put("logout", LogoutMappingPath);
-        API_MAP.put("register", RegisterMappingPath);
+        API_MAP.put("register", REGISTER_ENDPOINT);
+        // TODO: add Api of videos
     }
 
     /**
@@ -35,7 +36,7 @@ public class DefaultController {
         return PathMappingConstants.ForwardToRootPath;
     }
 
-    @GetMapping(value = API_BASE_PATH)
+    @GetMapping(value = API_ENDPOINT)
     @ResponseBody
     public Map<String, String> navigation() {
         return API_MAP;

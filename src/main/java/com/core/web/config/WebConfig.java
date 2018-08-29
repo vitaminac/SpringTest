@@ -11,7 +11,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 
 import java.lang.reflect.Method;
 
-import static com.core.web.util.PathMappingConstants.API_BASE_PATH;
+import static com.core.web.util.PathMappingConstants.API_ENDPOINT;
 
 @Configuration
 public class WebConfig {
@@ -25,7 +25,7 @@ public class WebConfig {
                     protected void registerHandlerMethod(Object handler, Method method, RequestMappingInfo mapping) {
                         Class<?> beanType = method.getDeclaringClass();
                         if (AnnotationUtils.findAnnotation(beanType, RestController.class) != null) {
-                            PatternsRequestCondition apiPattern = new PatternsRequestCondition(API_BASE_PATH)
+                            PatternsRequestCondition apiPattern = new PatternsRequestCondition(API_ENDPOINT)
                                     .combine(mapping.getPatternsCondition());
 
                             mapping = new RequestMappingInfo(mapping.getName(), apiPattern,

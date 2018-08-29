@@ -14,22 +14,22 @@ import javax.validation.Valid;
 import java.security.Principal;
 
 import static com.core.web.util.HttpConstants.XML_HTTP_REQUEST;
-import static com.core.web.util.PathMappingConstants.LoginMappingPath;
+import static com.core.web.util.PathMappingConstants.LOGIN_ENDPOINT;
 import static com.core.web.util.PathMappingConstants.LogoutMappingPath;
-import static com.core.web.util.PathMappingConstants.RegisterMappingPath;
+import static com.core.web.util.PathMappingConstants.REGISTER_ENDPOINT;
 
 @RestController
-@RequestMapping(headers = {XML_HTTP_REQUEST})
+@RequestMapping(headers = {XML_HTTP_REQUEST}) // TODO: filter for header XML_HTTP_REQUEST
 public class UserController {
     private UserRepository repo;
 
-    @Autowired
+    @Autowired // TODO: remove autowired unnecessary
     public UserController(UserRepository repo) {
         this.repo = repo;
     }
 
     // TODO: @ApiController register
-    @PostMapping(RegisterMappingPath)
+    @PostMapping(REGISTER_ENDPOINT)
     public ResponseEntity<User> register(@Valid @RequestBody final User user) {
         // TODO: prohibit create user when there is already one with same username
         // TODO: hash
@@ -37,7 +37,7 @@ public class UserController {
         return ResponseEntity.ok().body(newUser);
     }
 
-    @GetMapping(LoginMappingPath)
+    @GetMapping(LOGIN_ENDPOINT)
     public Principal login(Principal principal) {
         return principal;
     }

@@ -2,9 +2,8 @@ package com.core.web.config;
 
 import com.core.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -13,11 +12,19 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import java.util.Arrays;
+
+import static com.core.web.util.PathMappingConstants.API_ENDPOINT;
 import static com.core.web.util.PathMappingConstants.LogoutMappingPath;
+import static com.core.web.util.SecurityConstants.FILTER_LOGIN_API;
+import static com.core.web.util.SecurityConstants.FILTER_REGISTER_API;
+import static com.core.web.util.SecurityConstants.FILTER_SERVICE_API;
 
 @Configuration
-@Order(SecurityProperties.IGNORED_ORDER)
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private UserDetailsService userDetailsService;
@@ -30,15 +37,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 //        http.requiresChannel().anyRequest().requiresSecure();
-        http.authorizeRequests().anyRequest().permitAll().and()
-                .cors().disable()
-//                .authorizeRequests().antMatchers(HttpMethod.GET, IndexMappingPath, FilterAllJavaScript, FilterAllStyleSheet, FaviconIconMappingPath, FilterLanguagesMappingPath).permitAll().and()
-//                .authorizeRequests().mvcMatchers(HttpMethod.GET, RootMappingPath, API_BASE_PATH).permitAll().and()
-//                .authorizeRequests().mvcMatchers(HttpMethod.POST, API_BASE_PATH + UserMappingPath).permitAll().and()
-//                .authorizeRequests().anyRequest().authenticated().and()
+        http
+                .cors().and()
+                .authorizeRequests().antMatchers(HttpMethod.OPTIONS).permitAll().and()
+                .authorizeRequests().mvcMatchers(API_ENDPOINT, FILTER_LOGIN_API, FILTER_REGISTER_API).permitAll().and()
+                .authorizeRequests().mvcMatchers(FILTER_SERVICE_API).authenticated().and()
 
                 // TODO: fix this security hole
-//                .csrf().ignoringAntMatchers(API_BASE_PATH + RegisterMappingPath).and()
+//                .csrf().ignoringAntMatchers(API_ENDPOINT + REGISTER_ENDPOINT).and()
 //                .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and()
                 .csrf().disable()
 
@@ -49,7 +55,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers(HttpMethod.OPTIONS, "/**");
+        // this line caused our request send without cors header
+        //web.ignoring().antMatchers(HttpMethod.OPTIONS, "/**");
     }
 
     @Override
@@ -66,5 +73,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 return rawPassword.toString().equals(encodedPassword);
             }
         });
+    }
+
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        // TODO: configure
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList("*"));
+        configuration.setAllowedMethods(Arrays.asList("*"));
+        configuration.setAllowedHeaders(Arrays.asList("*"));
+        // configuration.setAllowCredentials(true);
+        //configuration.setMaxAge(3600L);
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
     }
 }

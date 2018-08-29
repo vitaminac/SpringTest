@@ -10,13 +10,13 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import static com.core.web.util.PathMappingConstants.API_BASE_PATH;
+import static com.core.web.util.PathMappingConstants.API_ENDPOINT;
 
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Component
-@RequestMapping(API_BASE_PATH)
+@RequestMapping(API_ENDPOINT)
 public @interface ApiController {
     @AliasFor(annotation = Component.class)
     String value() default "";
