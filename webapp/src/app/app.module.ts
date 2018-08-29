@@ -22,6 +22,7 @@ import {TranslationService} from "./service/translation.service";
 import {MessageService} from "./service/message.service";
 import {CredentialService} from "./service/credential.service";
 import {AuthInterceptor} from "./interceptor/auth.interceptor";
+import {ErrorInterceptor} from "./interceptor/error.interceptor";
 
 
 @NgModule({
@@ -60,6 +61,11 @@ import {AuthInterceptor} from "./interceptor/auth.interceptor";
       useClass: AuthInterceptor,
       multi: true,
       deps: [CredentialService]
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
     },
     {
       provide: APP_INITIALIZER,
