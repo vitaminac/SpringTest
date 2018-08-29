@@ -11,4 +11,7 @@ export class AppConfig {
   public static LOGOUT: string = "logout";
   public static USERS: string = "users";
   public static REGISTER: string = "register";
+
+
+  public static UNAUTHORIZED: number = 401;
 }
