@@ -19,7 +19,7 @@ export class AuthenticationService {
     }
   }
 
-  private authenticate(callback?: () => void): void {
+  private authenticate(callback?: () => void): void { // TODO: infinite loop
     this.http.get(this.api.LoginApi).subscribe(response => {
       if (response['name']) {
         this._authenticated = true;
@@ -49,10 +49,11 @@ export class AuthenticationService {
     return this._authenticated;
   }
 
-  logout(callback?: () => void) {
-    this.http.get(this.api.LogoutApi).pipe(finalize(() => {
+  logout(callback?: () => void) { // TODO: LOGOUT
+    this.http.get(this.api.LogoutApi).subscribe(() => {
       this._authenticated = false;
+      this.credential.invalidate();
       return callback && callback();
-    }));
+    });
   }
 }

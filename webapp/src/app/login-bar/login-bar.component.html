@@ -4,7 +4,7 @@
     </ng-container>
 
     <ng-template #loggedIn>
-      <li><a (click)="logout()">{{"Logout" | translate}}</a></li>
+      <li><a [routerLink]="" (click)="logout()">{{"Logout" | translate}}</a></li>
     </ng-template>
 
     <ng-template #loggedOut>

@@ -5,6 +5,7 @@ import {AccessGuard} from "../guard/access.guard";
 import {LoginComponent} from "../login/login.component";
 import {ErrorComponent} from "../error/error.component";
 import {HomeComponent} from "../home/home.component";
+import {AppConfig} from "../config/app.config";
 
 const appRoutes: Routes = [
   {
@@ -14,7 +15,7 @@ const appRoutes: Routes = [
   },
   {path: 'home', component: HomeComponent},
   {path: "library", component: LibraryComponent, data: {requiresLogin: true}, canActivate: [AccessGuard]},
-  {path: "login", component: LoginComponent},
+  {path: AppConfig.LOGIN, component: LoginComponent},
   {path: '**', component: ErrorComponent}
 ];
 

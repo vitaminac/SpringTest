@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from "../service/authentication.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login-bar',
@@ -9,14 +10,14 @@ import {AuthenticationService} from "../service/authentication.service";
 export class LoginBarComponent implements OnInit {
 
   // TODO: async pipe
-  constructor(private auth: AuthenticationService) {
+  constructor(private auth: AuthenticationService, private router: Router) {
   }
 
   ngOnInit() {
   }
 
   logout() {
-    this.auth.logout();
+    this.auth.logout(() => this.router.navigate(["login"]));
   }
 
   get authenticated(): boolean {
