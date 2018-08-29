@@ -8,7 +8,7 @@
     </ng-template>
 
     <ng-template #loggedOut>
-      <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
+      <li><a [routerLink]="loginUrl" routerLinkActive="active">Login</a></li>
     </ng-template>
   </ul>
 </nav>

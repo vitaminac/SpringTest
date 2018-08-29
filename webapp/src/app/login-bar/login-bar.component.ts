@@ -24,4 +24,8 @@ export class LoginBarComponent implements OnInit {
   get authenticated(): boolean {
     return this.auth.authenticated;
   }
+
+  get loginUrl():string{
+    return AppConfig.LOGIN;
+  }
 }
