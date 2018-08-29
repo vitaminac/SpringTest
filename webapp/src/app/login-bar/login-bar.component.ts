@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from "../service/authentication.service";
 import {Router} from "@angular/router";
+import {AppConfig} from "../config/app.config";
 
 @Component({
   selector: 'app-login-bar',
@@ -17,7 +18,7 @@ export class LoginBarComponent implements OnInit {
   }
 
   logout() {
-    this.auth.logout(() => this.router.navigate(["login"]));
+    this.auth.logout(() => this.router.navigate([AppConfig.LOGOUT]));
   }
 
   get authenticated(): boolean {
