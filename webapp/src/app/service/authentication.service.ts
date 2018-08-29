@@ -8,23 +8,15 @@ import {CredentialService} from "./credential.service";
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private _authenticated: boolean;
 
   constructor(private http: HttpClient, private api: ApiService, private credential: CredentialService) {
-    if (this.credential.hasCredential()) {
-      this._authenticated = true;
-    } else {
-      this._authenticated = false;
-    }
   }
 
-  private authenticate(callback?: () => void): void { // TODO: infinite loop
+  private authenticate(callback?: () => void): void {
     this.http.get(this.api.LoginApi).subscribe(response => {
       if (response['name']) {
-        this._authenticated = true;
         this.credential.save();
       } else {
-        this._authenticated = false;
         this.credential.invalidate();
       }
       return callback && callback();
@@ -41,12 +33,11 @@ export class AuthenticationService {
   }
 
   get authenticated(): boolean {
-    return this._authenticated;
+    return this.credential.hasCredential();
   }
 
   logout(callback?: () => void) {
     this.http.get(this.api.LogoutApi).subscribe(() => {
-      this._authenticated = false;
       this.credential.invalidate();
       return callback && callback();
     });

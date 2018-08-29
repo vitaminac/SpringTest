@@ -7,13 +7,13 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (this.manager.credential == null) {
-      return next.handle(req);
-    } else {
-      const xhr = req.clone({
+    if (this.manager.hasCredential()) {
+      const auth = req.clone({
         headers: req.headers.set('Authorization', this.manager.credential)
       });
-      return next.handle(xhr);
+      return next.handle(auth);
+    } else {
+      return next.handle(req);
     }
   }
 }
