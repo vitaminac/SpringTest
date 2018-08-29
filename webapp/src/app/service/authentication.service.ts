@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {ApiService} from "./api.service";
-import {finalize} from "rxjs/operators";
 import {CredentialDTO} from "../model/credentialDTO";
 import {CredentialService} from "./credential.service";
 
@@ -28,7 +27,6 @@ export class AuthenticationService {
         this._authenticated = false;
         this.credential.invalidate();
       }
-      // TODO: navigate back to previous
       return callback && callback();
     });
   }
@@ -39,17 +37,14 @@ export class AuthenticationService {
   }
 
   register(credential: CredentialDTO, callback?: () => void): void {
-    // TODO: api url /api/register
-    // TODO:credentials DTO
     this.http.post(this.api.RegisterApi, credential).subscribe(r => this.login(credential, callback));
   }
 
   get authenticated(): boolean {
-    // TODO: Check that the user is logged in...
     return this._authenticated;
   }
 
-  logout(callback?: () => void) { // TODO: LOGOUT
+  logout(callback?: () => void) {
     this.http.get(this.api.LogoutApi).subscribe(() => {
       this._authenticated = false;
       this.credential.invalidate();
