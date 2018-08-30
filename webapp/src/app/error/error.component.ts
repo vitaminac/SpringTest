@@ -1,6 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {timer} from "rxjs";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {AppConfig} from "../config/app.config";
 
 @Component({
@@ -9,10 +9,14 @@ import {AppConfig} from "../config/app.config";
   styleUrls: ['./error.component.css']
 })
 export class ErrorComponent implements OnInit {
-  constructor(private router: Router) {
+  errorCode: number;
+
+  constructor(private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    // TODO: create errorCode -> to text pipe
+    this.errorCode = this.route.snapshot.data.error;
     timer(AppConfig.REDIRECT_DELAY).subscribe(() => {
       this.router.navigate([""]);
     });
