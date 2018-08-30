@@ -14,6 +14,7 @@ import static com.core.web.util.PathMappingConstants.LogoutMappingPath;
 import static com.core.web.util.PathMappingConstants.MatchesAllPath;
 import static com.core.web.util.PathMappingConstants.REGISTER_ENDPOINT;
 import static com.core.web.util.PathMappingConstants.UserMappingPath;
+import static com.core.web.util.PathMappingConstants.VIDEO_API;
 
 @Controller
 public class DefaultController {
@@ -25,7 +26,7 @@ public class DefaultController {
         API_MAP.put("login", LOGIN_ENDPOINT);
         API_MAP.put("logout", LogoutMappingPath);
         API_MAP.put("register", REGISTER_ENDPOINT);
-        // TODO: add Api of videos
+        API_MAP.put("videos", VIDEO_API);
     }
 
     /**
