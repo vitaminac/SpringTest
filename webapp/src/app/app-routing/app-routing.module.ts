@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from "@angular/router";
 import {LibraryComponent} from "../library/library.component";
-import {AccessGuard} from "../guard/access.guard";
+import {AccessGuard} from "./access.guard";
 import {LoginComponent} from "../login/login.component";
 import {ErrorComponent} from "../error/error.component";
 import {HomeComponent} from "../home/home.component";
@@ -16,7 +16,7 @@ const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: "library", component: LibraryComponent, data: {requiresLogin: true}, canActivate: [AccessGuard]},
   {path: AppConfig.LOGIN, component: LoginComponent},
-  {path: '**', component: ErrorComponent}
+  {path: '**', component: ErrorComponent, data: {error: AppConfig.NOT_FOUND}}
 ];
 
 @NgModule({

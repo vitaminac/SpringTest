@@ -14,4 +14,5 @@ export class AppConfig {
 
 
   public static UNAUTHORIZED: number = 401;
+  public static NOT_FOUND: number = 404;
 }
