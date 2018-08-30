@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
 
   loginOrRegister() {
     if (this.isLoginMode()) {
+      // TODO: show login failed message
       this.auth.login(this.credential, this.goBack.bind(this));
     } else {
       this.auth.register(this.credential, this.goBack.bind(this));
