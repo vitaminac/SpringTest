@@ -5,7 +5,7 @@ import {AppComponent} from './app.component';
 import {TranslatePipe} from './pipe/translate.pipe';
 import {FormsModule} from "@angular/forms";
 import {HomeComponent} from './home/home.component';
-import {MessagesComponent} from './messages/messages.component';
+import {NotificationComponent} from './notification/notification.component';
 import {AppRoutingModule} from "./app-routing/app-routing.module";
 import {LibraryComponent} from "./library/library.component";
 import {LoginComponent} from "./login/login.component";
@@ -19,22 +19,24 @@ import {windowProvider} from "./config/window.provider";
 import {WINDOW} from "./config/inject.token";
 import {LoginBarComponent} from './login-bar/login-bar.component';
 import {TranslationService} from "./service/translation.service";
-import {MessageService} from "./service/message.service";
+import {NotificationService} from "./service/notification.service";
 import {CredentialService} from "./service/credential.service";
 import {AuthInterceptor} from "./interceptor/auth.interceptor";
 import {ErrorInterceptor} from "./interceptor/error.interceptor";
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MessagesComponent,
+    NotificationComponent,
     LibraryComponent,
     LoginComponent,
     HomeComponent,
     ErrorComponent,
     TranslatePipe,
-    LoginBarComponent
+    LoginBarComponent,
+    TestComponent
   ],
   imports: [
     AppRoutingModule,
@@ -75,8 +77,8 @@ import {ErrorInterceptor} from "./interceptor/error.interceptor";
     },
     TranslationService,
     {
-      provide: MessageService,
-      useClass: MessageService,
+      provide: NotificationService,
+      useClass: NotificationService,
       deps: [TranslationService]
     }
   ],
