@@ -15,4 +15,7 @@ export class AppConfig {
 
   public static UNAUTHORIZED: number = 401;
   public static NOT_FOUND: number = 404;
+
+  public static NOTIFICATION_DISPLAY_SPAN_MILLISECOND = 5000;
+  public static TIME_SPAN_BETWEEN_NOTIFICATION_MILLISECOND = 3000;
 }
