@@ -8,7 +8,7 @@ import {AppConfig} from "../config/app.config";
 @Injectable({
   providedIn: 'root'
 })
-export class HttpErrorService {
+export class HttpErrorHandlerService {
 
   constructor(private credential: CredentialService, private location: Location) {
   }

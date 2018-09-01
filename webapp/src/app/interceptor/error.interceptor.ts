@@ -2,13 +2,13 @@ import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest}
 import {Observable, throwError} from "rxjs";
 import {catchError} from "rxjs/operators";
 import {Injectable} from "@angular/core";
-import {HttpErrorService} from "../service/http.error.service";
+import {HttpErrorHandlerService} from "../service/http-error-handler.service";
 
 @Injectable({
   providedIn: "root"
 })
 export class ErrorInterceptor implements HttpInterceptor {
-  constructor(private httpErrorHandler: HttpErrorService) {
+  constructor(private httpErrorHandler: HttpErrorHandlerService) {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
