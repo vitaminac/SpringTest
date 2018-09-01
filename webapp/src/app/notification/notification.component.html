@@ -1,5 +1,5 @@
-<div style="text-align:center">
-  <h1>
-    {{ message | translate }}
-  </h1>
-</div>
+<p *ngFor="let notification of notifications">
+  <ngb-alert [type]="getType(notification.type)" (close)="close(notification)">
+    <strong>{{ notification.message | translate }}</strong>
+  </ngb-alert>
+</p>

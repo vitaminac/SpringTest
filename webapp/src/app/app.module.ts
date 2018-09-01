@@ -23,7 +23,8 @@ import {NotificationService} from "./service/notification.service";
 import {CredentialService} from "./service/credential.service";
 import {AuthInterceptor} from "./interceptor/auth.interceptor";
 import {ErrorInterceptor} from "./interceptor/error.interceptor";
-import { TestComponent } from './test/test.component';
+import {TestComponent} from './test/test.component';
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { TestComponent } from './test/test.component';
     AppRoutingModule,
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [
     windowProvider,

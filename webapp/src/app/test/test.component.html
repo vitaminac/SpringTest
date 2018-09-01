@@ -2,5 +2,5 @@
   <label for="comment"></label>
   <textarea id="comment" name="comment" rows="10" cols="30" [(ngModel)]="comment"></textarea>
   <br>
-  <input type="submit" (click)="send()">
+  <button class="btn btn-primary" type="submit" (click)="send()" ngbButton>Send</button>
 </form>

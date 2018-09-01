@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NotificationService} from "../service/notification.service";
+import {NotificationType} from "../model/notification.type";
 
 @Component({
   selector: 'app-test',
@@ -16,6 +17,6 @@ export class TestComponent implements OnInit {
   }
 
   send() {
-    this.notification.notify(this.comment);
+    this.notification.notify({type: NotificationType.info, message: this.comment});
   }
 }
