@@ -17,7 +17,7 @@ import {XhrInterceptor} from "./interceptor/xhr.interceptor";
 import {ApiInterceptor} from "./interceptor/api.interceptor";
 import {windowProvider} from "./config/window.provider";
 import {WINDOW} from "./config/inject.token";
-import {NavBarComponent} from './nav-bar/nav-bar.component';
+import {HeaderComponent} from './header/header.component';
 import {TranslationService} from "./service/translation.service";
 import {NotificationService} from "./service/notification.service";
 import {CredentialService} from "./service/credential.service";
@@ -25,6 +25,7 @@ import {AuthInterceptor} from "./interceptor/auth.interceptor";
 import {ErrorInterceptor} from "./interceptor/error.interceptor";
 import {TestComponent} from './test/test.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 
 @NgModule({
@@ -36,8 +37,9 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
     HomeComponent,
     ErrorComponent,
     TranslatePipe,
-    NavBarComponent,
-    TestComponent
+    HeaderComponent,
+    TestComponent,
+    NavBarComponent
   ],
   imports: [
     AppRoutingModule,

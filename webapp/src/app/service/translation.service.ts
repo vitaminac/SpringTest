@@ -3,7 +3,7 @@ import {English} from "../languages/messages.en";
 import {Spanish} from "../languages/messages.es";
 import {Messages} from "../languages/messages";
 
-export class TranslationService implements Messages {
+export class TranslationService implements Messages { // TODO: rename Messages to Translation
   private translation: Messages;
 
   constructor() {

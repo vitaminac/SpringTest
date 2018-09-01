@@ -1,7 +1,7 @@
 import {Observable, Subject} from "rxjs";
 import {TranslationService} from "./translation.service";
 import {Notification} from "../model/notification";
-import {NotificationType} from "../model/notification.type";
+import {NotificationType} from "../model/notification.type"; // TODO: REMOVE UNUSED IMPORT
 
 export class NotificationService {
   private readonly _notifications: Subject<Notification> = new Subject();

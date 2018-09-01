@@ -1,0 +1,76 @@
+.header-container {
+  width: 100%;
+  background-color: #fff;
+  z-index: 3;
+}
+
+.main-header-nav-body {
+  height: 50px;
+  width: 980px;
+  margin: 0 auto;
+}
+
+.main-header-nav-body > .nav-li {
+  position: relative;
+  font-size: 14px;
+  display: block;
+  height: 50px;
+}
+
+.main-header-nav-body > .nav-li {
+  position: relative;
+  font-size: 14px;
+  display: block;
+  height: 50px;
+}
+
+.nav-li > a {
+  color: #222;
+  display: block;
+  font-size: 14px;
+  margin: 15px 20px auto 20px;
+}
+
+.nav-li > a:hover {
+  color: #00a1d6;
+}
+
+.nav-li .nav-li-list {
+  z-index: 10;
+  background-color: #fff;
+  display: none;
+  width: 128px;
+  position: absolute;
+  top: 50px;
+  box-shadow: 0 2px 3px #ccc;
+  overflow: hidden;
+}
+
+.nav-li:hover .nav-li-list, .nav-li > a:hover .nav-li-list, .nav-li-list:hover {
+  display: block;
+}
+
+.nav-li-list > a {
+  display: block;
+  color: #000;
+  width: 118px;
+  height: 34px;
+  margin: 10px auto 0 10px;
+  padding-top: 5px;
+  font-size: 14px;
+  transition: .3s;
+}
+
+.nav-li-list > a:hover {
+  color: #ffa5c7;
+  border-right: 2px solid #00a1d6;
+}
+
+.nav-li.now {
+  border-bottom: 2px solid #00a1d6;
+}
+
+.floatleft {
+  position: relative;
+  float: left;
+}

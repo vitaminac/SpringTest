@@ -1,16 +1,7 @@
-<nav>
-  <ul>
-    <li>
-      <ng-container *ngIf="authenticated; then loggedOut; else loggedIn">
-      </ng-container>
-
-      <ng-template #loggedOut>
-        <a [routerLink]="" (click)="logout()">{{"Logout" | translate}}</a>
-      </ng-template>
-
-      <ng-template #loggedIn>
-        <a [routerLink]="loginUrl" routerLinkActive="active">Login</a>
-      </ng-template>
+<nav class="header-container">
+  <ul class="main-header-nav-body">
+    <li class="nav-li floatleft">
+      <a href="#/sort/1">动画</a>
     </li>
   </ul>
 </nav>

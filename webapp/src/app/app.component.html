@@ -1,11 +1,6 @@
-<nav-bar></nav-bar>
+<app-header-bar></app-header-bar>
+<app-nav-bar></app-nav-bar>
 <app-notification></app-notification>
-<form>
-  <label for="languages">language:</label>
-  <select name="languages" id="languages" [(ngModel)]="language" (change)="switchLanguage()">
-    <option [ngValue]="key" *ngFor="let key of keys">{{languages[key]}}</option>
-  </select>
-</form>
 <div class="container-fluid">
   <router-outlet></router-outlet>
 </div>
