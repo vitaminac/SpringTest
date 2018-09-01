@@ -4,7 +4,7 @@ import {Router} from "@angular/router";
 import {AppConfig} from "../config/app.config";
 
 @Component({
-  selector: 'app-login-bar',
+  selector: 'nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
