@@ -5,10 +5,10 @@ import {AppConfig} from "../config/app.config";
 
 @Component({
   selector: 'app-login-bar',
-  templateUrl: './login-bar.component.html',
-  styleUrls: ['./login-bar.component.css']
+  templateUrl: './nav-bar.component.html',
+  styleUrls: ['./nav-bar.component.css']
 })
-export class LoginBarComponent implements OnInit {
+export class NavBarComponent implements OnInit {
 
   // TODO: async pipe
   constructor(private auth: AuthenticationService, private router: Router) {

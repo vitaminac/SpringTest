@@ -17,7 +17,7 @@ import {XhrInterceptor} from "./interceptor/xhr.interceptor";
 import {ApiInterceptor} from "./interceptor/api.interceptor";
 import {windowProvider} from "./config/window.provider";
 import {WINDOW} from "./config/inject.token";
-import {LoginBarComponent} from './login-bar/login-bar.component';
+import {NavBarComponent} from './nav-bar/nav-bar.component';
 import {TranslationService} from "./service/translation.service";
 import {NotificationService} from "./service/notification.service";
 import {CredentialService} from "./service/credential.service";
@@ -35,7 +35,7 @@ import { TestComponent } from './test/test.component';
     HomeComponent,
     ErrorComponent,
     TranslatePipe,
-    LoginBarComponent,
+    NavBarComponent,
     TestComponent
   ],
   imports: [
