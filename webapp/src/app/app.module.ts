@@ -7,7 +7,6 @@ import {FormsModule} from "@angular/forms";
 import {HomeComponent} from './home/home.component';
 import {NotificationComponent} from './notification/notification.component';
 import {AppRoutingModule} from "./app-routing/app-routing.module";
-import {LibraryComponent} from "./library/library.component";
 import {LoginComponent} from "./login/login.component";
 import {ErrorComponent} from "./error/error.component";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
@@ -25,21 +24,24 @@ import {AuthInterceptor} from "./interceptor/auth.interceptor";
 import {ErrorInterceptor} from "./interceptor/error.interceptor";
 import {TestComponent} from './test/test.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
-import { NavBarComponent } from './nav-bar/nav-bar.component';
+import {NavBarComponent} from './nav-bar/nav-bar.component';
+import {VideoListComponent} from './video-list/video-list.component';
+import {VideoDetailComponent} from './video-detail/video-detail.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NotificationComponent,
-    LibraryComponent,
     LoginComponent,
     HomeComponent,
     ErrorComponent,
     TranslatePipe,
     HeaderComponent,
     TestComponent,
-    NavBarComponent
+    NavBarComponent,
+    VideoListComponent,
+    VideoDetailComponent
   ],
   imports: [
     AppRoutingModule,

@@ -1,0 +1,5 @@
+<ul class="videos-list">
+  <li class="video-item" *ngFor="let video of videos">
+    <a [routerLink]="['/videos', video.id]">{{ video.name }}</a>
+  </li>
+</ul>
