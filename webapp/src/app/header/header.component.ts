@@ -31,6 +31,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
+    // TODO: without navigate to logout
     this.auth.logout(() => this.router.navigate([AppConfig.LOGOUT]));
   }
 
