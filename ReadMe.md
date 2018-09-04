@@ -56,8 +56,6 @@
     + Hibernate
     + [Angular 6](https://angular.io/)
     + [Bootstrap 4](https://getbootstrap.com/docs/)
-    + Https
-    + Http Basic Authentication
 
 * ## Architecture
     * Server-side
@@ -72,6 +70,14 @@
         * Controller
         * Service
         * Routing base modular, multi-view design
+        
+* ## Security
+    * Https
+    * Http Basic Authentication
+    * Cross Origin Domain
+    * XSRF Cross-site request forgery
+    * Session Fixation
+    * SQL Injection
 
 * ## Useful Tips
     * Router event subscript
