@@ -1,5 +1,6 @@
 package com.core.web.controller;
 
+import com.core.web.error.ResourceNotFoundException;
 import com.core.web.model.Video;
 import com.core.web.repository.VideoRepository;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +28,6 @@ public class VideoController {
 
     @GetMapping("{id}")
     public Video findOne(@PathVariable Integer id) {
-        return this.repository.findById(id).get(); // TODO: fix;
+        return this.repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(this.getClass(), id));
     }
 }

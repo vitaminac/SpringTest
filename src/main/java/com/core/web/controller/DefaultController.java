@@ -1,6 +1,6 @@
 package com.core.web.controller;
 
-import com.core.web.repository.UserRepository;
+import com.core.web.repository.VideoRepository;
 import com.core.web.util.PathMappingConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -50,11 +50,11 @@ public class DefaultController {
     // test
 
     @Autowired
-    private UserRepository repo;
+    private VideoRepository repo;
 
     @GetMapping(TEST_PATH + "/{id}")
     @ResponseBody
-    public Object test(@PathVariable String id) {
+    public Object test(@PathVariable Integer id) {
         return this.repo.findById(id);
     }
 }
