@@ -121,7 +121,11 @@
                 * Filter Page
             * RouterLinkActive
                 * The directive for adding/removing classes from an HTML element when an associated routerLink contained on or inside the element becomes active/inactive.
-                
+    * Spring
+        * @Slf4j
+            * Lombok annotation to autocreate an Slf4j-based LoggerFactory as log
+        * @Bean CommandLineRunner
+            * Spring Boot will run ALL CommandLineRunner beans once the application context is loaded.       
 * ## Glossary
     * Unknown
         * JSON Web Token (JWT)
@@ -137,6 +141,5 @@
     * Anemic Domain Model
         * DTO - It Encapsulate The Communication Between Two Process, e.g. As Parameter Or Return Value
         * CRUD - Create, Read, Update And Delete
-        * 
         * POJO - Plain Old Java Object
             
