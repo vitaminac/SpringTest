@@ -6,15 +6,18 @@ import lombok.Data;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Data
 public class Video { // TODO: AuditModel
     @Id
-    // @GeneratedValue TODO: fix this
+    @GeneratedValue(strategy = IDENTITY) // https://stackoverflow.com/a/4979988/9980245
     private Integer id;
 
     @OneToOne(fetch = FetchType.LAZY)
