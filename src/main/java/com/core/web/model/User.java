@@ -2,8 +2,7 @@ package com.core.web.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,8 +13,7 @@ import static com.core.web.config.PersistanceConstants.UserTableName;
 
 @Entity
 @Table(name = UserTableName)
-@Getter
-@Setter
+@Data
 public class User { // TODO: implement UserDetail and add column role
     @Id
     private String username;
@@ -27,7 +25,7 @@ public class User { // TODO: implement UserDetail and add column role
         return username;
     }
 
-    @JsonIgnore
+    @JsonIgnore // TODO: check if it still work
     public String getPassword() {
         return password;
     }

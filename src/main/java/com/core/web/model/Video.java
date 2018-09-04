@@ -1,10 +1,7 @@
 package com.core.web.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,12 +11,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
+@Data
 public class Video { // TODO: AuditModel
     @Id
+    // @GeneratedValue TODO: fix this
     private Integer id;
 
     @OneToOne(fetch = FetchType.LAZY)
