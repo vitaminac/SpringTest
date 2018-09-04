@@ -5,7 +5,7 @@
 * ## TODO List
     0. Reload Component When Logout
     
-* ## Request Features, Sorted By Priority 
+* ## Features Request Sorted By Priority 
     0. [Make Features Service Globally Available](https://angular-2-training-book.rangle.io/handout/modules/feature-modules.html)
     1. [Watching Video](https://www.bilibili.com/blackboard/html5player.html)
     2. [Library Component](https://www.bilibili.com/anime/index)
@@ -40,6 +40,7 @@
     * Spring HATEOAS
     * Spring Testing
     * Karma
+    * Logger
     * [WebTorrent](https://github.com/webtorrent/webtorrent)
     * [Socket.IO](https://socket.io/)
     * Angular i18n
@@ -53,6 +54,7 @@
             * Create a database and create a role at init
             * Create a user that only has insert, update and select privilege
             * Execute schema.sql and data.sql and init.db
+    * Google Analytics
     
 * ## Remember
     * Write TODO
