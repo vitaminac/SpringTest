@@ -4,7 +4,6 @@
 
 * ## TODO List
     0. Reload Component When Logout
-    1. Thanks list in ReadMe.md
     
 * ## Request Features, Sorted By Priority 
     0. [Make Features Service Globally Available](https://angular-2-training-book.rangle.io/handout/modules/feature-modules.html)
@@ -58,12 +57,15 @@
     * [Spring REST](https://spring.io/guides/tutorials/rest/)
     * [Configure Angular HMR](https://github.com/angular/angular-cli/wiki/stories-configure-hmr)
     
-* ## Technology Stack
+* ## Technology Stack AND Thanks The Following Open Source Projects
     + PostgresSQL
     + Spring
     + Hibernate
     + [Angular 6](https://angular.io/)
     + [Bootstrap 4](https://getbootstrap.com/docs/)
+    + UI
+        * [Bootstrap Angular](https://ng-bootstrap.github.io/)
+        
 
 * ## Architecture
     * Server-side
