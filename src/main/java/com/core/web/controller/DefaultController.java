@@ -1,8 +1,11 @@
 package com.core.web.controller;
 
+import com.core.web.repository.UserRepository;
 import com.core.web.util.PathMappingConstants;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
@@ -13,6 +16,7 @@ import static com.core.web.util.PathMappingConstants.LOGIN_ENDPOINT;
 import static com.core.web.util.PathMappingConstants.LogoutMappingPath;
 import static com.core.web.util.PathMappingConstants.MatchesAllPath;
 import static com.core.web.util.PathMappingConstants.REGISTER_ENDPOINT;
+import static com.core.web.util.PathMappingConstants.TEST_PATH;
 import static com.core.web.util.PathMappingConstants.UserMappingPath;
 import static com.core.web.util.PathMappingConstants.VIDEO_API;
 
@@ -41,5 +45,16 @@ public class DefaultController {
     @ResponseBody
     public Map<String, String> navigation() {
         return API_MAP;
+    }
+
+    // test
+
+    @Autowired
+    private UserRepository repo;
+
+    @GetMapping(TEST_PATH + "/{id}")
+    @ResponseBody
+    public Object test(@PathVariable String id) {
+        return this.repo.findById(id);
     }
 }

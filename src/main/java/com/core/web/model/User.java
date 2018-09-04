@@ -25,7 +25,7 @@ public class User { // TODO: implement UserDetail and add column role
         return username;
     }
 
-    @JsonIgnore // TODO: check if it still work
+    @JsonIgnore
     public String getPassword() {
         return password;
     }
