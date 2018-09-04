@@ -1,5 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, ParamMap} from "@angular/router";
+import {Observable} from "rxjs";
+import {VideoDTO} from "../videoDTO";
+import {switchMap} from "rxjs/operators";
+import {VideoProviderService} from "../video-provider.service";
 
 @Component({
   selector: 'app-video',
@@ -7,11 +11,14 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./video-detail.component.css']
 })
 export class VideoDetailComponent implements OnInit {
-  private id: number; // TODO get object from id
-  constructor(private route: ActivatedRoute) {
+  video$: Observable<VideoDTO>; // TODO get object from id
+  constructor(private route: ActivatedRoute, private provider: VideoProviderService) {
   }
 
   ngOnInit() {
-    this.route.paramMap.subscribe((paramMap) => this.id = parseInt(paramMap.get("id")));
+    this.video$ = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) =>
+        this.provider.getVideo(parseInt(params.get('id'))))
+    );
   }
 }

@@ -29,6 +29,10 @@ export class ApiService {
     return this.api[AppConfig.LOGOUT];
   }
 
+  get VideoApi() {
+    return this.api[AppConfig.VIDEOS];
+  }
+
   async load(): Promise<any> {
     return this.http.get("/").pipe(map((data) => this.api = data)).toPromise();
   }

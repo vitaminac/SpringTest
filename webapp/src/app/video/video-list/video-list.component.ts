@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {AppConfig} from "../../config/app.config";
 import {VideoDTO} from "../videoDTO";
 import {VideoProviderService} from "../video-provider.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-video-list',
@@ -9,13 +9,13 @@ import {VideoProviderService} from "../video-provider.service";
   styleUrls: ['./video-list.component.css']
 })
 export class VideoListComponent implements OnInit {
-  videos: VideoDTO[];
+  videos$: Observable<VideoDTO[]>;
 
   constructor(private provider: VideoProviderService) {
   }
 
   ngOnInit() {
-    this.provider.loadVideoList().then((data) => this.videos = data);
+    this.videos$ = this.provider.loadVideoList();
     // TODO css class [video-list, video-item]
     // TODO: video link to constant from component
   }
