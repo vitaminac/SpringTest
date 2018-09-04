@@ -32,7 +32,8 @@
     9. Add BL Layer And Dao Layer
     10. RememberMe
     11. Encrypt Password
-    0. Allow Request With Wrong Credentials to Non-Authentication-Require-Endpoint 
+    0. Allow Request With Wrong Credentials to Non-Authentication-Require-Endpoint
+    0. Require XMLHttpRequest Header For Any Request
     
 * ## Future Components
     * [Dplayer](https://github.com/MoePlayer/DPlayer), [Angular component](https://github.com/Guanyunhan/angular-dplayer)
@@ -47,9 +48,15 @@
     * Angular i18n
     * Semantic Web - Seo
     
-* ## Remember List
+* ## Remember
+    * Write TODO
+    * Javadoc in and only in abstract method
     * @JsonIgnore in Relation column
     * Comment Each Modification About The Exception And Solution Reference
+    * Naming Convention
+        * The **$** is a convention that indicates heroes$ is an Observable
+        * *Manager, *Service, *Dao, *Controller, *Repository
+    * Where to place JavaScript? Just before you need it and no sooner
     
 * ## Dev Documentations Sorted By Reference Times
     * [Spring Framework](https://docs.spring.io/spring/docs/current/spring-framework-reference/)
@@ -90,12 +97,34 @@
     * SQL Injection
 
 * ## Useful Tips
-    * Router event subscript
-    * Router's CanDeactivate guard
-        * The guard gives you a chance to clean-up or ask the user's permission before navigating away from the current view
-    * RouterLink Query Params
-        * Query string parameters are provided through the [queryParams] binding which takes an object (e.g. { name: 'value' })
-        * Filter Page
-    * RouterLinkActive
-        * The directive for adding/removing classes from an HTML element when an associated routerLink contained on or inside the element becomes active/inactive.
-    
+    * Spring
+        * @RequestParam, Query Param
+    * Angular
+        * Router
+            * Router event subscript
+            * Router's CanDeactivate guard
+                * The guard gives you a chance to clean-up or ask the user's permission before navigating away from the current view
+            * RouterLink Query Params
+                * Query string parameters are provided through the [queryParams] binding which takes an object (e.g. { name: 'value' })
+                * Filter Page
+            * RouterLinkActive
+                * The directive for adding/removing classes from an HTML element when an associated routerLink contained on or inside the element becomes active/inactive.
+                
+* ## Glossary
+    * Unknown
+        * JSON Web Token (JWT)
+        * Domain driven design
+        * Jaxb Json
+        * DDD: Repository Implementation Patterns
+        * Query Object
+    * Design Pattern
+        * DAO - Data Access Object
+        * Delegation pattern
+        * CDI - Context And Dependencies Injection
+        * MVC - Model-View-Controller
+    * Anemic Domain Model
+        * DTO - It Encapsulate The Communication Between Two Process, e.g. As Parameter Or Return Value
+        * CRUD - Create, Read, Update And Delete
+        * 
+        * POJO - Plain Old Java Object
+            
