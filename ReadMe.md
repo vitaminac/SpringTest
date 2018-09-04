@@ -1,9 +1,13 @@
 # Guide
+* ## Our Goal
+    0. [Bilibili Like Danmaku Video Website](https://github.com/WhiteBlue/bilibili-html5)
 
 * ## TODO List
+    0. Reload Component When Logout
     1. Thanks list in ReadMe.md
     
 * ## Request Features, Sorted By Priority 
+    0. [Make Features Service Globally Available](https://angular-2-training-book.rangle.io/handout/modules/feature-modules.html)
     1. [Watching Video](https://www.bilibili.com/blackboard/html5player.html)
     2. [Library Component](https://www.bilibili.com/anime/index)
         * Filter with query params
@@ -29,6 +33,7 @@
     9. Add BL Layer And Dao Layer
     10. RememberMe
     11. Encrypt Password
+    0. Allow Request With Wrong Credentials to Non-Authentication-Require-Endpoint 
     
 * ## Future Components
     * [Dplayer](https://github.com/MoePlayer/DPlayer), [Angular component](https://github.com/Guanyunhan/angular-dplayer)
@@ -47,7 +52,10 @@
     * @JsonIgnore in Relation column
     * Comment Each Modification About The Exception And Solution Reference
     
-* ## Dev Documentations
+* ## Dev Documentations Sorted By Reference Times
+    * [Spring Framework](https://docs.spring.io/spring/docs/current/spring-framework-reference/)
+    * [Spring Application Properties](https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html/)
+    * [Spring REST](https://spring.io/guides/tutorials/rest/)
     * [Configure Angular HMR](https://github.com/angular/angular-cli/wiki/stories-configure-hmr)
     
 * ## Technology Stack
@@ -81,4 +89,11 @@
 
 * ## Useful Tips
     * Router event subscript
-    * 
+    * Router's CanDeactivate guard
+        * The guard gives you a chance to clean-up or ask the user's permission before navigating away from the current view
+    * RouterLink Query Params
+        * Query string parameters are provided through the [queryParams] binding which takes an object (e.g. { name: 'value' })
+        * Filter Page
+    * RouterLinkActive
+        * The directive for adding/removing classes from an HTML element when an associated routerLink contained on or inside the element becomes active/inactive.
+    
