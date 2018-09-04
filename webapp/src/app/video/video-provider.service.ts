@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {VideoDTO} from "../model/videoDTO";
+import {VideoDTO} from "./videoDTO";
 import {HttpClient} from "@angular/common/http";
 import {AppConfig} from "../config/app.config";
 

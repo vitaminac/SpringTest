@@ -12,7 +12,6 @@ export class VideoDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.params.subscribe((params) => this.id = params['id']);
+    this.route.paramMap.subscribe((paramMap) => this.id = parseInt(paramMap.get("id")));
   }
-
 }

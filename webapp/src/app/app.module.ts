@@ -25,8 +25,7 @@ import {ErrorInterceptor} from "./interceptor/error.interceptor";
 import {TestComponent} from './test/test.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {NavBarComponent} from './nav-bar/nav-bar.component';
-import {VideoListComponent} from './video-list/video-list.component';
-import {VideoDetailComponent} from './video-detail/video-detail.component';
+import {VideoModule} from "./video/video.module";
 
 
 @NgModule({
@@ -39,16 +38,17 @@ import {VideoDetailComponent} from './video-detail/video-detail.component';
     TranslatePipe,
     HeaderComponent,
     TestComponent,
-    NavBarComponent,
-    VideoListComponent,
-    VideoDetailComponent
+    NavBarComponent
   ],
   imports: [
-    AppRoutingModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    VideoModule,
+    // AppRoutingModule is last
+    // The order of route configuration matters. The router accepts the first route that matches a navigation request path.
+    AppRoutingModule
   ],
   providers: [
     windowProvider,
@@ -81,7 +81,7 @@ import {VideoDetailComponent} from './video-detail/video-detail.component';
       deps: [ApiService],
       multi: true
     },
-    TranslationService,
+    TranslationService, // TODO: try to remove it
     {
       provide: NotificationService,
       useClass: NotificationService,

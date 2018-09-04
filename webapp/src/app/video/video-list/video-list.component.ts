@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {AppConfig} from "../config/app.config";
-import {VideoDTO} from "../model/videoDTO";
-import {VideoProviderService} from "../service/video-provider.service";
+import {AppConfig} from "../../config/app.config";
+import {VideoDTO} from "../videoDTO";
+import {VideoProviderService} from "../video-provider.service";
 
 @Component({
   selector: 'app-video-list',
