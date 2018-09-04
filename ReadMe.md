@@ -54,7 +54,6 @@
     + PostgresSQL
     + Spring
     + Hibernate
-    + REST API
     + [Angular 6](https://angular.io/)
     + [Bootstrap 4](https://getbootstrap.com/docs/)
     + Https
@@ -62,7 +61,8 @@
 
 * ## Architecture
     * Server-side
-        * REST API Controller
+        * REST API
+        * Controller
         * Repository
         * DTO Model
         * ORM Mapping
