@@ -41,12 +41,18 @@
     * Spring Testing
     * Karma
     * [WebTorrent](https://github.com/webtorrent/webtorrent)
-    * Redis - Session
-    * Nginx - Serving Static Content Under Http Context
     * [Socket.IO](https://socket.io/)
-    * Tomcat (War Deployment)
     * Angular i18n
     * Semantic Web - Seo
+    * Deploy Using [Docker](https://www.docker.com/)
+        * Redis - Session
+        * [Tomcat](http://tomcat.apache.org/) (War Deployment)
+        * Nginx - Serving Static Content Under Http Context
+        * Node.js As Frontend
+        * DBMS
+            * Create a database and create a role at init
+            * Create a user that only has insert, update and select privilege
+            * Execute schema.sql and data.sql and init.db
     
 * ## Remember
     * Write TODO
@@ -59,9 +65,11 @@
     * Where to place JavaScript? Just before you need it and no sooner
     
 * ## Dev Documentations Sorted By Reference Times
+    * [Spring REST](https://spring.io/guides/tutorials/rest/)
+    * [Learn Rxjs](https://www.learnrxjs.io/)
     * [Spring Framework](https://docs.spring.io/spring/docs/current/spring-framework-reference/)
     * [Spring Application Properties](https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html/)
-    * [Spring REST](https://spring.io/guides/tutorials/rest/)
+    * [Angular Resources](https://angular.io/resources)
     * [Configure Angular HMR](https://github.com/angular/angular-cli/wiki/stories-configure-hmr)
     
 * ## Technology Stack AND Thanks The Following Open Source Projects
@@ -70,6 +78,8 @@
     + Hibernate
     + [Angular 6](https://angular.io/)
     + [Bootstrap 4](https://getbootstrap.com/docs/)
+    * AOP
+        * [Lombok](https://projectlombok.org/)
     + UI
         * [Bootstrap Angular](https://ng-bootstrap.github.io/)
         
