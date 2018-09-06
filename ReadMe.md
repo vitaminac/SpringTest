@@ -36,7 +36,7 @@
     0. Require XMLHttpRequest Header For Any Request
     
 * ## Future Components
-    * [Dplayer](https://github.com/MoePlayer/DPlayer), [Angular component](https://github.com/Guanyunhan/angular-dplayer)
+    * [Dplayer](https://github.com/MoePlayer/DPlayer), [angular-dplayer](https://github.com/MoePlayer/angular-dplayer)
     * Spring HATEOAS
     * Spring Testing
     * Karma
@@ -65,6 +65,7 @@
         * The **$** is a convention that indicates heroes$ is an Observable
         * *Manager, *Service, *Dao, *Controller, *Repository
     * Where to place JavaScript? Just before you need it and no sooner
+    * When subscribing to an observable in a component, you almost always arrange to unsubscribe when the component is destroyed
     
 * ## Dev Documentations Sorted By Reference Times
     * [Spring REST](https://spring.io/guides/tutorials/rest/)
