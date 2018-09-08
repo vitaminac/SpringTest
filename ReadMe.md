@@ -16,12 +16,7 @@
         * An independent module
             * Export only a single component
         * Backend API /api/video/type
-        * [Resource Component]() represent a single resource, independent of its type
-            * Filed
-                * Description
-                * Cover
-                * Uploader
-                * URI
+        * [Resource Component]
     3. Upload video
     4. Upload subtitle
     5. Upload danmaku
