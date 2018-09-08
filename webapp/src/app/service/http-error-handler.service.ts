@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {Observable, throwError} from "rxjs";
 import {HttpErrorResponse, HttpEvent} from "@angular/common/http";
 import {CredentialService} from "./credential.service";
-import {Location} from "@angular/common";
 import {AppConfig} from "../config/app.config";
 
 @Injectable({
