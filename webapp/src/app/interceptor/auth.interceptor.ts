@@ -3,7 +3,7 @@ import {Observable} from "rxjs";
 import {CredentialService} from "../service/credential.service";
 
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private manager: CredentialService) {// @Inject(forwardRef(() => CredentialService)) private manager: CredentialService) { TODO: circular reference, how to solve
+  constructor(private manager: CredentialService) {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

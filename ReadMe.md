@@ -52,6 +52,7 @@
             * Create a user that only has insert, update and select privilege
             * Execute schema.sql and data.sql and init.db
     * Google Analytics
+    * [rawgit](https://rawgit.com/)
     
 * ## Remember
     * [Make Features Service Globally Available](https://angular-2-training-book.rangle.io/handout/modules/feature-modules.html)
@@ -129,10 +130,12 @@
             * RouterLinkActive
                 * The directive for adding/removing classes from an HTML element when an associated routerLink contained on or inside the element becomes active/inactive.
         * Unclassified
-            * To force change detection
+            * [To force change detection](https://stackoverflow.com/a/35106069/9980245)
                 * [ApplicationRef.tick()](https://angular.io/api/core/ApplicationRef#tick)
                 * [NgZone.run(callback)](https://angular.io/api/core/NgZone#run)
                 * [ChangeDetectorRef.detectChanges()](https://angular.io/api/core/ChangeDetectorRef#detectChanges)
+            * How to solve circular dependency
+                * constructor(@Inject(forwardRef(() => CredentialService)) private service: Service, ...)
     * Spring
         * @Slf4j
             * Lombok annotation to autocreate an Slf4j-based LoggerFactory as log
@@ -164,6 +167,8 @@
         * Delegation pattern
         * CDI - Context And Dependencies Injection
         * MVC - Model-View-Controller
+        * Chain-of-responsibility
+        * Singleton
         
     * Anemic Domain Model
         * DTO - It Encapsulate The Communication Between Two Process, e.g. As Parameter Or Return Value

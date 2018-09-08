@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 
-// TODO: optimize import
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
