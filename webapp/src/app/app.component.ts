@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {TranslationService} from "./service/translation.service";
-import {Language} from "./languages/Language";
+
 // TODO: optimize import
 @Component({
   selector: 'app-root',
