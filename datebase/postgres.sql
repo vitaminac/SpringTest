@@ -15,14 +15,22 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 INSERT INTO users
-VALUES ('admin', 'password');
+VALUES ('demo', 'demo123');
 
-CREATE TABLE IF NOT EXISTS video (
-  id       SERIAL PRIMARY KEY,
-  uploader TEXT NOT NULL REFERENCES users ON DELETE RESTRICT,
-  name     TEXT NOT NULL
+CREATE TABLE IF NOT EXISTS resource (
+  id   SERIAL PRIMARY KEY,
+  name TEXT        NOT NULL,
+  uri  TEXT UNIQUE NOT NULL
 );
 
-INSERT INTO video (uploader, name)
-VALUES ('admin', 'one piece');
+CREATE TABLE IF NOT EXISTS video (
+  id       INTEGER PRIMARY KEY REFERENCES resource ON DELETE CASCADE,
+  uploader TEXT NOT NULL REFERENCES users ON DELETE RESTRICT
+);
+
+INSERT INTO resource (name, uri)
+VALUES ('one piece', '');
+
+INSERT INTO video (id, uploader)
+VALUES ((SELECT id FROM resource WHERE name = 'one piece'), 'demo');
 
