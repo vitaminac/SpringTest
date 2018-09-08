@@ -1,9 +1,9 @@
 package com.core.web.util;
 
-import static com.core.web.util.PathMappingConstants.API_ENDPOINT;
-import static com.core.web.util.PathMappingConstants.FILES_API;
-import static com.core.web.util.PathMappingConstants.LOGIN_ENDPOINT;
-import static com.core.web.util.PathMappingConstants.REGISTER_ENDPOINT;
+import static com.core.web.util.RouteConstants.API_ENDPOINT;
+import static com.core.web.util.RouteConstants.FILES_API;
+import static com.core.web.util.RouteConstants.LOGIN_ENDPOINT;
+import static com.core.web.util.RouteConstants.REGISTER_ENDPOINT;
 
 public class SecurityConstants {
     private static final String ALL_INCLUDE_CHILDREN_PATHS = "/**";

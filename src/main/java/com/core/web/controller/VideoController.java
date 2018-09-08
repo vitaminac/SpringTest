@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import static com.core.web.util.PathMappingConstants.VIDEO_API;
+import static com.core.web.util.RouteConstants.VIDEO_API;
 
 @RestController
 @RequestMapping(VIDEO_API)

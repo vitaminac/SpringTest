@@ -18,8 +18,8 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
 
-import static com.core.web.util.PathMappingConstants.API_ENDPOINT;
-import static com.core.web.util.PathMappingConstants.LogoutMappingPath;
+import static com.core.web.util.RouteConstants.API_ENDPOINT;
+import static com.core.web.util.RouteConstants.LogoutMappingPath;
 import static com.core.web.util.SecurityConstants.FILTER_LOGIN_API;
 import static com.core.web.util.SecurityConstants.FILTER_REGISTER_API;
 import static com.core.web.util.SecurityConstants.FILTER_SERVICE_API;

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import static com.core.web.util.PathMappingConstants.FILES_API;
+import static com.core.web.util.RouteConstants.FILES_API;
 
 @Controller
 @RequestMapping(FILES_API)

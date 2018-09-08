@@ -10,7 +10,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import static com.core.web.util.PathMappingConstants.API_ENDPOINT;
+import static com.core.web.util.RouteConstants.API_ENDPOINT;
 
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)

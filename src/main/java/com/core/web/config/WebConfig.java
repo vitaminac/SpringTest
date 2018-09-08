@@ -11,7 +11,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 
 import java.lang.reflect.Method;
 
-import static com.core.web.util.PathMappingConstants.API_ENDPOINT;
+import static com.core.web.util.RouteConstants.API_ENDPOINT;
 
 @Configuration
 public class WebConfig {

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import static com.core.web.util.PathMappingConstants.TEST_PATH;
+import static com.core.web.util.RouteConstants.TEST_PATH;
 
 @ApiController
 public class TestController {

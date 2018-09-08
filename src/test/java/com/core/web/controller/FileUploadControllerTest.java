@@ -14,7 +14,7 @@ import org.springframework.security.util.InMemoryResource;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static com.core.web.util.PathMappingConstants.FILES_API;
+import static com.core.web.util.RouteConstants.FILES_API;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;

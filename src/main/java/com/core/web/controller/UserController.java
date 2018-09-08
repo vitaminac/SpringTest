@@ -13,9 +13,9 @@ import javax.validation.Valid;
 import java.security.Principal;
 
 import static com.core.web.util.HttpConstants.XML_HTTP_REQUEST;
-import static com.core.web.util.PathMappingConstants.LOGIN_ENDPOINT;
-import static com.core.web.util.PathMappingConstants.LogoutMappingPath;
-import static com.core.web.util.PathMappingConstants.REGISTER_ENDPOINT;
+import static com.core.web.util.RouteConstants.LOGIN_ENDPOINT;
+import static com.core.web.util.RouteConstants.LogoutMappingPath;
+import static com.core.web.util.RouteConstants.REGISTER_ENDPOINT;
 
 @RestController
 @RequestMapping(headers = {XML_HTTP_REQUEST}) // TODO: filter for header XML_HTTP_REQUEST

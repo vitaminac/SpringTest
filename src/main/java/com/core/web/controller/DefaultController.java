@@ -1,6 +1,6 @@
 package com.core.web.controller;
 
-import com.core.web.util.PathMappingConstants;
+import com.core.web.util.RouteConstants;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.core.web.util.PathMappingConstants.API_ENDPOINT;
-import static com.core.web.util.PathMappingConstants.LOGIN_ENDPOINT;
-import static com.core.web.util.PathMappingConstants.LogoutMappingPath;
-import static com.core.web.util.PathMappingConstants.MatchesAllPath;
-import static com.core.web.util.PathMappingConstants.REGISTER_ENDPOINT;
-import static com.core.web.util.PathMappingConstants.UserMappingPath;
-import static com.core.web.util.PathMappingConstants.VIDEO_API;
+import static com.core.web.util.RouteConstants.API_ENDPOINT;
+import static com.core.web.util.RouteConstants.LOGIN_ENDPOINT;
+import static com.core.web.util.RouteConstants.LogoutMappingPath;
+import static com.core.web.util.RouteConstants.MatchesAllPath;
+import static com.core.web.util.RouteConstants.REGISTER_ENDPOINT;
+import static com.core.web.util.RouteConstants.UserMappingPath;
+import static com.core.web.util.RouteConstants.VIDEO_API;
 
 @Controller
 public class DefaultController {
@@ -34,7 +34,7 @@ public class DefaultController {
      */
     @GetMapping(value = MatchesAllPath)
     public String forwardSPA() {
-        return PathMappingConstants.ForwardToRootPath;
+        return RouteConstants.ForwardToRootPath;
     }
 
     @GetMapping(value = API_ENDPOINT)
