@@ -23,6 +23,7 @@ import static com.core.web.util.PathMappingConstants.LogoutMappingPath;
 import static com.core.web.util.SecurityConstants.FILTER_LOGIN_API;
 import static com.core.web.util.SecurityConstants.FILTER_REGISTER_API;
 import static com.core.web.util.SecurityConstants.FILTER_SERVICE_API;
+import static com.core.web.util.SecurityConstants.FILTER_STATIC_FILES;
 
 @Configuration
 @EnableWebSecurity
@@ -40,7 +41,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .cors().and()
                 .authorizeRequests().antMatchers(HttpMethod.OPTIONS).permitAll().and()
-                .authorizeRequests().mvcMatchers(API_ENDPOINT, FILTER_LOGIN_API, FILTER_REGISTER_API).permitAll().and()
+                .authorizeRequests().mvcMatchers(API_ENDPOINT, FILTER_LOGIN_API, FILTER_REGISTER_API, FILTER_STATIC_FILES).permitAll().and()
                 .authorizeRequests().mvcMatchers(FILTER_SERVICE_API).authenticated().and()
 
                 // TODO: fix this security hole

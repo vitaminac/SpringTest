@@ -1,6 +1,6 @@
 package com.core.web.util;
 
-public class PathMappingConstants {
+public class PathMappingConstants { // TODO: rename to RouteConstants
     public static final String MatchesAllPath = "/{path:[^\\.]+}/**";
     public static final String ForwardToRootPath = "forward:/";
     public static final String UserMappingPath = "/users";
@@ -10,4 +10,5 @@ public class PathMappingConstants {
     public static final String API_ENDPOINT = "/api";
     public static final String TEST_PATH = "/test";
     public static final String VIDEO_API = "/videos";
+    public static final String FILES_API = API_ENDPOINT + "/files";
 }
