@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {isDevMode, NgModule} from '@angular/core';
 import {RouterModule, Routes} from "@angular/router";
 import {LoginComponent} from "../login/login.component";
 import {ErrorComponent} from "../error/error.component";
@@ -22,7 +22,7 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(
       appRoutes,
-      {enableTracing: true} // TODO: <-- debugging purposes only
+      {enableTracing: isDevMode()} // <-- debugging purposes only
     )],
   exports: [RouterModule]
 })
