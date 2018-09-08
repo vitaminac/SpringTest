@@ -26,6 +26,7 @@ import {TestComponent} from './test/test.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {NavBarComponent} from './nav-bar/nav-bar.component';
 import {VideoModule} from "./video/video.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import {VideoModule} from "./video/video.module";
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     NgbModule,
     VideoModule,
     // AppRoutingModule is last

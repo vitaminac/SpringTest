@@ -1,17 +1,23 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostBinding, OnInit} from '@angular/core';
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {VideoProviderService} from "../video-provider.service";
 import {DPlayerDanmaku, DPlayerVideo} from "dplayer";
 import {Observable} from "rxjs";
 import {map, switchMap} from "rxjs/operators";
 import {VideoDTO} from "../videoDTO";
+import {slideInDownAnimation} from "../../animations";
 
 @Component({
   selector: 'app-video',
   templateUrl: './video-detail.component.html',
-  styleUrls: ['./video-detail.component.css']
+  styleUrls: ['./video-detail.component.css'],
+  animations: [slideInDownAnimation]
 })
 export class VideoDetailComponent implements OnInit {
+  @HostBinding('@routeAnimation') routeAnimation = true;
+  @HostBinding('style.display') display = 'block';
+  @HostBinding('style.position') position = 'absolute';
+
   dPlayerArguments$: Observable<DPlayerArguments>;
 
   constructor(private route: ActivatedRoute, private provider: VideoProviderService) {
