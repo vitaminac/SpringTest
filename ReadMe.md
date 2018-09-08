@@ -3,7 +3,8 @@
     0. [Bilibili Like Danmaku Video Website](https://github.com/WhiteBlue/bilibili-html5)
 
 * ## TODO List
-    0. Reload Component When Logout
+    0. Reload without reload
+    0. Hook send & receive danmaku api in dPlayer
     
 * ## Features Request Sorted By Priority 
     1. [Watching Video](https://www.bilibili.com/blackboard/html5player.html)
@@ -29,6 +30,7 @@
     0. Allow Request With Wrong Credentials to Non-Authentication-Require-Endpoint
     0. Require XMLHttpRequest Header For Any Request
     0. [NoSQL for file storage](https://docs.mongodb.com/manual/core/gridfs/)
+    0. Create a bean that return strings for use of other service, it take care of internalization for web service and any other
     
 * ## Future Components
     * Spring HATEOAS
@@ -63,8 +65,11 @@
     * Where to place JavaScript? Just before you need it and no sooner
     * When subscribing to an observable in a component, you almost always arrange to unsubscribe when the component is destroyed
     * Use switch map for network operation, it will cancels previous in-flight requests
+    * Handle exception in proper layer
     
 * ## Dev Documentations Sorted By Reference Times
+    * Completed Tutorial
+        * [Uploading Files With Spring](https://spring.io/guides/gs/uploading-files/)
     * [Spring REST](https://spring.io/guides/tutorials/rest/)
     * [Learn Rxjs](https://www.learnrxjs.io/)
     * [Hibernate ORM](http://docs.jboss.org/hibernate/stable/orm/userguide/html_single/Hibernate_User_Guide.html)
@@ -123,6 +128,11 @@
                 * Filter Page
             * RouterLinkActive
                 * The directive for adding/removing classes from an HTML element when an associated routerLink contained on or inside the element becomes active/inactive.
+        * Unclassified
+            * To force change detection
+                * [ApplicationRef.tick()](https://angular.io/api/core/ApplicationRef#tick)
+                * [NgZone.run(callback)](https://angular.io/api/core/NgZone#run)
+                * [ChangeDetectorRef.detectChanges()](https://angular.io/api/core/ChangeDetectorRef#detectChanges)
     * Spring
         * @Slf4j
             * Lombok annotation to autocreate an Slf4j-based LoggerFactory as log
@@ -132,6 +142,9 @@
         * position: sticky 
     * Hibernate
         * Inheritance table in Postgres and Jpa @MappedSuperClass
+    * JSON
+        * @JsonCreator - signal on how Jackson can create an instance of this POJO
+        * @JsonProperty - clearly marks what field Jackson should put this constructor argument into
         
 * ## Glossary
     * Unknown
