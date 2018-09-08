@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from "../service/authentication.service";
-import {Router} from "@angular/router";
 import {AppConfig} from "../config/app.config";
 import {Language} from "../languages/Language";
 import {TranslationService} from "../service/translation.service";
@@ -11,12 +10,11 @@ import {TranslationService} from "../service/translation.service";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  // TODO: async pipe
   language: Language;
   languages = Language;
   keys: number[];
 
-  constructor(private translator: TranslationService, private auth: AuthenticationService, private router: Router) {
+  constructor(private translator: TranslationService, private auth: AuthenticationService) {
     this.keys = Object.keys(this.languages).filter(k => !isNaN(Number(k))).map(i => parseInt(i));
   }
 
@@ -31,8 +29,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    // TODO: without navigate to logout
-    this.auth.logout(() => this.router.navigate([AppConfig.LOGOUT]));
+    this.auth.logout(() => location.reload());
   }
 
   get authenticated(): boolean {
