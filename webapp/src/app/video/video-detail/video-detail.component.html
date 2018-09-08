@@ -1,3 +1,7 @@
-<p>
-  video {{ (video$ | async)?.id}}
-</p>
+<ng-container *ngIf="dPlayerArguments$ | async as arguments; else loading">
+  <d-player [video]="arguments?.dPlayerVideo" [danmaku]="arguments?.danmaku"></d-player>
+</ng-container>
+
+<ng-template #loading>
+  Loading stuff...
+</ng-template>

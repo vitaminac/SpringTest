@@ -36,7 +36,6 @@
     0. Require XMLHttpRequest Header For Any Request
     
 * ## Future Components
-    * [Dplayer](https://github.com/MoePlayer/DPlayer), [angular-dplayer](https://github.com/MoePlayer/angular-dplayer)
     * Spring HATEOAS
     * Spring Testing
     * Karma
@@ -81,10 +80,11 @@
     + Hibernate
     + [Angular 6](https://angular.io/)
     + [Bootstrap 4](https://getbootstrap.com/docs/)
-    * AOP
+    + AOP
         * [Lombok](https://projectlombok.org/)
     + UI
         * [Bootstrap Angular](https://ng-bootstrap.github.io/)
+        * [DPlayer](https://github.com/MoePlayer/DPlayer), [angular-dplayer](https://github.com/MoePlayer/angular-moeplayer)
         
 
 * ## Architecture
