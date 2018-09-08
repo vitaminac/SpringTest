@@ -24,4 +24,7 @@ public class Resource { // TODO: AuditModel
 
     @Column(unique = true, nullable = false)
     private String uri;
+
+    @Column
+    private String description;
 }

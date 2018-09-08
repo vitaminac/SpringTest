@@ -33,7 +33,7 @@
     11. Encrypt Password
     0. Allow Request With Wrong Credentials to Non-Authentication-Require-Endpoint
     0. Require XMLHttpRequest Header For Any Request
-    0. table resource type and resource
+    0. [NoSQL for file storage](https://docs.mongodb.com/manual/core/gridfs/)
     
 * ## Future Components
     * Spring HATEOAS

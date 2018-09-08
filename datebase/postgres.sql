@@ -18,9 +18,10 @@ INSERT INTO users
 VALUES ('demo', 'demo123');
 
 CREATE TABLE IF NOT EXISTS resource (
-  id   SERIAL PRIMARY KEY,
-  name TEXT        NOT NULL,
-  uri  TEXT UNIQUE NOT NULL
+  id          SERIAL PRIMARY KEY,
+  name        TEXT        NOT NULL,
+  uri         TEXT UNIQUE NOT NULL,
+  description TEXT
 );
 
 CREATE TABLE IF NOT EXISTS video (
