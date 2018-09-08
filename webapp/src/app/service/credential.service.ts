@@ -21,11 +21,13 @@ export class CredentialService {
 
   invalidate() {
     this._credential = null;
-    sessionStorage.removeItem(CredentialService.STORAGE_KEY);
+    // sessionStorage.removeItem(CredentialService.STORAGE_KEY);
+    localStorage.removeItem(CredentialService.STORAGE_KEY); //TODO: sessionStorage
   }
 
   restore(): void {
-    const credential = sessionStorage.getItem(CredentialService.STORAGE_KEY);
+    // const credential = sessionStorage.getItem(CredentialService.STORAGE_KEY);
+    const credential = localStorage.getItem(CredentialService.STORAGE_KEY);
     if (credential != null) {
       this._credential = JSON.parse(credential);
     }
@@ -33,7 +35,8 @@ export class CredentialService {
 
   save(): void {
     if (this._credential != null) {
-      sessionStorage.setItem(CredentialService.STORAGE_KEY, JSON.stringify(this._credential));
+      //sessionStorage.setItem(CredentialService.STORAGE_KEY, JSON.stringify(this._credential));
+      localStorage.setItem(CredentialService.STORAGE_KEY, JSON.stringify(this._credential));
     }
   }
 
