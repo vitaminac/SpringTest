@@ -10,7 +10,7 @@ import {AppConfig} from "../config/app.config";
 })
 export class HttpErrorHandlerService {
 
-  constructor(private credential: CredentialService, private location: Location) {
+  constructor(private credential: CredentialService) {
   }
 
   handle(err: HttpErrorResponse, caught: Observable<HttpEvent<any>>): Observable<HttpEvent<any>> {
