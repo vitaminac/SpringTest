@@ -6,7 +6,6 @@
     0. Reload Component When Logout
     
 * ## Features Request Sorted By Priority 
-    0. [Make Features Service Globally Available](https://angular-2-training-book.rangle.io/handout/modules/feature-modules.html)
     1. [Watching Video](https://www.bilibili.com/blackboard/html5player.html)
     2. [Library Component](https://www.bilibili.com/anime/index)
         * Filter with query params
@@ -34,6 +33,7 @@
     11. Encrypt Password
     0. Allow Request With Wrong Credentials to Non-Authentication-Require-Endpoint
     0. Require XMLHttpRequest Header For Any Request
+    0. table resource type and resource
     
 * ## Future Components
     * Spring HATEOAS
@@ -56,6 +56,7 @@
     * Google Analytics
     
 * ## Remember
+    * [Make Features Service Globally Available](https://angular-2-training-book.rangle.io/handout/modules/feature-modules.html)
     * Write TODO
     * Javadoc in and only in abstract method
     * @JsonIgnore in Relation column
@@ -65,10 +66,13 @@
         * *Manager, *Service, *Dao, *Controller, *Repository
     * Where to place JavaScript? Just before you need it and no sooner
     * When subscribing to an observable in a component, you almost always arrange to unsubscribe when the component is destroyed
+    * Use switch map for network operation, it will cancels previous in-flight requests
     
 * ## Dev Documentations Sorted By Reference Times
     * [Spring REST](https://spring.io/guides/tutorials/rest/)
     * [Learn Rxjs](https://www.learnrxjs.io/)
+    * [Hibernate ORM](http://docs.jboss.org/hibernate/stable/orm/userguide/html_single/Hibernate_User_Guide.html)
+    * [Hibernate](http://docs.jboss.org/hibernate/stable/)
     * [Spring Framework](https://docs.spring.io/spring/docs/current/spring-framework-reference/)
     * [Spring Application Properties](https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html/)
     * [Angular Resources](https://angular.io/resources)
@@ -126,7 +130,12 @@
         * @Slf4j
             * Lombok annotation to autocreate an Slf4j-based LoggerFactory as log
         * @Bean CommandLineRunner
-            * Spring Boot will run ALL CommandLineRunner beans once the application context is loaded.       
+            * Spring Boot will run ALL CommandLineRunner beans once the application context is loaded.
+    * CSS
+        * position: sticky 
+    * Hibernate
+        * Inheritance table in Postgres and Jpa @MappedSuperClass
+        
 * ## Glossary
     * Unknown
         * JSON Web Token (JWT)
