@@ -42,6 +42,7 @@
     * Logger
     * [WebTorrent](https://github.com/webtorrent/webtorrent)
     * [Socket.IO](https://socket.io/)
+    * [stackedit](https://github.com/benweet/stackedit)
     * Angular i18n
     * Semantic Web - Seo
     * Deploy Using [Docker](https://www.docker.com/)
@@ -74,6 +75,7 @@
     * [Hibernate ORM](http://docs.jboss.org/hibernate/stable/orm/userguide/html_single/Hibernate_User_Guide.html)
     * [Hibernate](http://docs.jboss.org/hibernate/stable/)
     * [Spring Framework](https://docs.spring.io/spring/docs/current/spring-framework-reference/)
+    * [Spring Boot](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
     * [Spring Application Properties](https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html/)
     * [Angular Resources](https://angular.io/resources)
     * [Configure Angular HMR](https://github.com/angular/angular-cli/wiki/stories-configure-hmr)
@@ -143,11 +145,18 @@
         * Jaxb Json
         * DDD: Repository Implementation Patterns
         * Query Object
+    * Programming paradigm
+        * Object-oriented programming
+        * Declarative programming with Spring
+        * AOP - Aspect-oriented programming
+            * Functional programming 
+            
     * Design Pattern
         * DAO - Data Access Object
         * Delegation pattern
         * CDI - Context And Dependencies Injection
         * MVC - Model-View-Controller
+        
     * Anemic Domain Model
         * DTO - It Encapsulate The Communication Between Two Process, e.g. As Parameter Or Return Value
         * CRUD - Create, Read, Update And Delete
