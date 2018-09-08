@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import static com.core.web.config.PersistanceConstants.UserTableName;
+import static com.core.web.util.PersistenceConstants.UserTableName;
 
 @Entity
 @Table(name = UserTableName)
