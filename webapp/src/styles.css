@@ -1,2 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~dplayer/dist/DPlayer.min.css";
+
+/* https://ng.ant.design/docs/getting-started/en#customization */
+@import "~ng-zorro-antd/src/ng-zorro-antd.min.css";

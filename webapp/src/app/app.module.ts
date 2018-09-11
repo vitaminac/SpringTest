@@ -27,7 +27,12 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {NavBarComponent} from './nav-bar/nav-bar.component';
 import {VideoModule} from "./video/video.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {en_US, NZ_I18N} from "ng-zorro-antd";
+/** config angular i18n **/
+import {registerLocaleData} from '@angular/common';
+import en from '@angular/common/locales/en';
 
+registerLocaleData(en);
 
 @NgModule({
   declarations: [
@@ -88,7 +93,9 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
       provide: NotificationService,
       useClass: NotificationService,
       deps: [TranslationService]
-    }
+    },
+    /** config ng-zorro-antd i18n **/
+    { provide: NZ_I18N, useValue: en_US }
   ],
   bootstrap: [AppComponent]
 })

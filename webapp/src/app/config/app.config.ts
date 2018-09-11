@@ -12,6 +12,7 @@ export class AppConfig {
   public static USERS: string = "users";
   public static REGISTER: string = "register";
   public static VIDEOS: string = "videos";
+  public static IMAGES: string = "images";
 
 
   public static UNAUTHORIZED: number = 401;

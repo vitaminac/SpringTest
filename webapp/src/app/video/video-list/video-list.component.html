@@ -1,3 +1,4 @@
+<a [routerLink]="'/videos/new'">create one</a>
 <ul class="videos-list">
   <li class="video-item" *ngFor="let video of videos$ | async">
     <a [routerLink]="['/videos', video.id]">{{ video.name }}</a>

@@ -17,7 +17,7 @@ export class ApiService {
     return this.api[AppConfig.REGISTER];
   }
 
-  get usersApi() {
+  get usersApi() { // TODO: rename
     return this.api[AppConfig.USERS];
   }
 
@@ -31,6 +31,10 @@ export class ApiService {
 
   get VideoApi() {
     return this.api[AppConfig.VIDEOS];
+  }
+
+  get ImageApi(){
+    return this.api[AppConfig.IMAGES];
   }
 
   async load(): Promise<any> {
