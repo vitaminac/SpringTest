@@ -3,8 +3,10 @@
     0. [Bilibili Like Danmaku Video Website](https://github.com/WhiteBlue/bilibili-html5)
 
 * ## TODO List
-    0. Reload without reload
     0. Hook send & receive danmaku api in dPlayer
+    0. form that upload new video
+    0. Danmuku table, model, controller
+    0. [Boostrap Form](https://getbootstrap.com/docs/4.0/components/forms/)
     
 * ## Features Request Sorted By Priority 
     1. [Watching Video](https://www.bilibili.com/blackboard/html5player.html)
@@ -29,7 +31,7 @@
     11. Encrypt Password
     0. Allow Request With Wrong Credentials to Non-Authentication-Require-Endpoint
     0. Require XMLHttpRequest Header For Any Request
-    0. [NoSQL for file storage](https://docs.mongodb.com/manual/core/gridfs/)
+    0. [NoSQL for file storage or image](https://docs.mongodb.com/manual/core/gridfs/)
     0. Create a bean that return strings for use of other service, it take care of internalization for web service and any other
     
 * ## Future Components
@@ -37,6 +39,7 @@
     * Spring Testing
     * Karma
     * Logger
+    * [Semantic UI](https://semantic-ui.com/)
     * [WebTorrent](https://github.com/webtorrent/webtorrent)
     * [Socket.IO](https://socket.io/)
     * [stackedit](https://github.com/benweet/stackedit)
@@ -53,6 +56,7 @@
             * Execute schema.sql and data.sql and init.db
     * Google Analytics
     * [rawgit](https://rawgit.com/)
+    * [Modernizr](https://modernizr.com/)
     
 * ## Remember
     * [Make Features Service Globally Available](https://angular-2-training-book.rangle.io/handout/modules/feature-modules.html)
@@ -136,6 +140,13 @@
                 * [ChangeDetectorRef.detectChanges()](https://angular.io/api/core/ChangeDetectorRef#detectChanges)
             * How to solve circular dependency
                 * constructor(@Inject(forwardRef(() => CredentialService)) private service: Service, ...)
+            * Enable class
+                * [class.selected]="hero.id === selectedId"
+                * [search pipe](https://angular.io/tutorial/toh-pt6#the-searchterms-rxjs-subject)
+                    * debounceTime(300), // wait 300ms after each keystroke before considering the term
+                    * distinctUntilChanged(), // ignore new term if same as previous term
+                    * switchMap((term: string) => this.heroService.searchHeroes(term)), // switch to new search observable each time the term changes
+            * ng generate class Hero
     * Spring
         * @Slf4j
             * Lombok annotation to autocreate an Slf4j-based LoggerFactory as log
