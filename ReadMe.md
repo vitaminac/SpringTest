@@ -2,11 +2,16 @@
 * ## Our Goal
     0. [Bilibili Like Danmaku Video Website](https://github.com/WhiteBlue/bilibili-html5)
 
+* ## What we'll do next
+    * 
+
 * ## TODO List
+    0. Undo refactor name of videoDTO and PUT TODO 
     0. Hook send & receive danmaku api in dPlayer
     0. form that upload new video
     0. Danmuku table, model, controller
     0. [Boostrap Form](https://getbootstrap.com/docs/4.0/components/forms/)
+    0. Create request from map angular, utils service
     
 * ## Features Request Sorted By Priority 
     1. [Watching Video](https://www.bilibili.com/blackboard/html5player.html)
@@ -24,6 +29,8 @@
     4. Upload subtitle
     5. Upload danmaku
     6. Header Image
+    0. Angular Modal
+    0. OAuth
     7. Live Video Streaming (直播)
     8. Lazy Load Image
     9. Add BL Layer And Dao Layer
@@ -33,13 +40,23 @@
     0. Require XMLHttpRequest Header For Any Request
     0. [NoSQL for file storage or image](https://docs.mongodb.com/manual/core/gridfs/)
     0. Create a bean that return strings for use of other service, it take care of internalization for web service and any other
+    0. a separate [Worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) for danmaku
+    0. Video tap go forward o back like YouTube in mobile
+    0. CRUD that create CRUD
+    0. Replace path const in web app with hateo
+    0. Automatically add prefix in antMatcher
+    0. Identify where and which design pattern we have used
     
 * ## Future Components
     * Spring HATEOAS
     * Spring Testing
     * Karma
     * Logger
-    * [Semantic UI](https://semantic-ui.com/)
+    * UI
+        * [Semantic UI](https://semantic-ui.com/)
+        * [Official Angular Component UI](https://material.angular.io/)
+        * CSS
+            [Materialize](https://materializecss.com/)
     * [WebTorrent](https://github.com/webtorrent/webtorrent)
     * [Socket.IO](https://socket.io/)
     * [stackedit](https://github.com/benweet/stackedit)
@@ -60,6 +77,7 @@
     
 * ## Remember
     * [Make Features Service Globally Available](https://angular-2-training-book.rangle.io/handout/modules/feature-modules.html)
+    * Create GIT branch for new feature and pull request for merge
     * Write TODO
     * Javadoc in and only in abstract method
     * @JsonIgnore in Relation column
@@ -71,6 +89,8 @@
     * When subscribing to an observable in a component, you almost always arrange to unsubscribe when the component is destroyed
     * Use switch map for network operation, it will cancels previous in-flight requests
     * Handle exception in proper layer
+    * The component should not have too much awareness of the template details
+    * Add prefix /api/ in security AntMatcher
     
 * ## Dev Documentations Sorted By Reference Times
     * Completed Tutorial
@@ -134,6 +154,7 @@
                 * Filter Page
             * RouterLinkActive
                 * The directive for adding/removing classes from an HTML element when an associated routerLink contained on or inside the element becomes active/inactive.
+            * @Output
         * Unclassified
             * [To force change detection](https://stackoverflow.com/a/35106069/9980245)
                 * [ApplicationRef.tick()](https://angular.io/api/core/ApplicationRef#tick)
@@ -160,6 +181,15 @@
     * JSON
         * @JsonCreator - signal on how Jackson can create an instance of this POJO
         * @JsonProperty - clearly marks what field Jackson should put this constructor argument into
+    * HTML
+        * onblur
+            * user leaves an input field
+
+* ## Frequent errors
+    * 401 Http Status error
+        * The login credential is wrong
+    * Observable only when get returned when it is actually be subscribed
+    * 
         
 * ## Glossary
     * Unknown
