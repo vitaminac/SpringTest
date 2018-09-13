@@ -14,9 +14,13 @@ export class AppConfig {
   public static VIDEOS: string = "videos";
   public static IMAGES: string = "images";
 
-
+  // Http Error Code
   public static UNAUTHORIZED: number = 401;
   public static NOT_FOUND: number = 404;
+
+  // Http Headers
+  public static CONTENT_TYPE: string = "Content-Type";
+  public static FORM_DATA: string = "application/form-data";
 
   public static NOTIFICATION_DISPLAY_SPAN_MILLISECOND = 5000;
   public static TIME_SPAN_BETWEEN_NOTIFICATION_MILLISECOND = 3000;
