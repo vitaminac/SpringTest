@@ -9,7 +9,7 @@ export class UtilsService {
   constructor(private http: HttpClient) {
   }
 
-  public convertFileToBase64(file: File, callback: (img: string) => void) {
+  public convertFileToBase64(file: File, callback: (content: string) => void) {
     const reader = new FileReader();
     reader.addEventListener('load', () => callback(reader.result));
     reader.readAsDataURL(file);
