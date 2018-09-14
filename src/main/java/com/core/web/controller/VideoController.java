@@ -2,8 +2,7 @@ package com.core.web.controller;
 
 import com.core.web.error.ResourceNotFoundException;
 import com.core.web.model.Video;
-import com.core.web.repository.VideoRepository;
-import com.core.web.service.UserService;
+import com.core.web.service.VideoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,24 +23,22 @@ import static com.core.web.util.RouteConstants.VIDEO_API;
 @RestController
 @RequestMapping(VIDEO_API)
 public class VideoController {
-    private final VideoRepository repository;
     private final FileUploadController fileUploadRestApi;
-    private final UserService userService;
+    private final VideoService service;
 
-    private VideoController(VideoRepository repository, FileUploadController fileUploadRestApi, UserService userService) {
-        this.repository = repository;
+    private VideoController(VideoService service, FileUploadController fileUploadRestApi) {
+        this.service = service;
         this.fileUploadRestApi = fileUploadRestApi;
-        this.userService = userService;
     }
 
     @GetMapping
     public List<Video> listVideos() {
-        return this.repository.findAll();
+        return this.service.list();
     }
 
     @GetMapping("{id}")
     public Video findOne(@PathVariable Integer id) { // TODO: rename to read of CRUD
-        return this.repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(this.getClass(), id));
+        return this.service.find(id).orElseThrow(() -> new ResourceNotFoundException(this.getClass(), id));
     }
 
     /**
@@ -60,8 +57,7 @@ public class VideoController {
         // TODO: we need to be able to delete image and video
         model.setUri(this.fileUploadRestApi.handleFileUpload(video));
         model.setCover(this.fileUploadRestApi.handleFileUpload(cover));
-        model.setUploader(userService.read(principal.getName()));
-        model = this.repository.save(model);
+        model = this.service.create(model);
         return ResponseEntity.ok().body(model);
     }
 }

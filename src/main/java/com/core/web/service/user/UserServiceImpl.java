@@ -1,22 +1,24 @@
-package com.core.web.service;
+package com.core.web.service.user;
 
 import com.core.web.error.UserNotFoundException;
 import com.core.web.model.User;
 import com.core.web.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import java.security.Principal;
 
 import static org.springframework.security.core.userdetails.User.withUsername;
 
 @Service
-public class UserService implements UserDetailsService {
+public class UserServiceImpl implements UserService {
     private UserRepository repo;
 
     @Autowired
-    public UserService(UserRepository repo) {
+    public UserServiceImpl(UserRepository repo) {
         this.repo = repo;
     }
 
@@ -27,7 +29,13 @@ public class UserService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException(username));
     }
 
-    public User read(String username) throws UserNotFoundException {
+    public User read(String username) {
         return this.repo.findById(username).orElseThrow(() -> new UserNotFoundException(username));
+    }
+
+    @Override
+    public User getCurrentUser() {
+        Principal principal = SecurityContextHolder.getContext().getAuthentication();
+        return this.read(principal.getName());
     }
 }
