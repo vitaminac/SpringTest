@@ -10,23 +10,14 @@ export class ApiInterceptor implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    let url: URL;
+    // if the url doesn't have base url then add api endpoint as base path
     try {
-      url = new URL(req.url);
+      new URL(req.url); // validate url
+      return next.handle(req);
     } catch (e) {
-      url = new URL(req.url, this.window.location.href);
+      return next.handle(req.clone({
+        url: AppConfig.API_ENDPOINT + (req.url.startsWith("/") ? req.url : "/" + req.url)
+      }));
     }
-    url.host = AppConfig.API_ENDPOINT_HOST;
-    url.port = AppConfig.API_ENDPOINT_PORT.toString();
-    url.protocol = AppConfig.API_ENDPOINT_PROTOCOL;
-    if (url.pathname.startsWith("/")) {
-      url.pathname = AppConfig.API + url.pathname;
-    } else {
-      url.pathname = AppConfig.API + "/" + url.pathname;
-    }
-    const api = req.clone({
-      url: url.toString()
-    });
-    return next.handle(api);
   }
 }

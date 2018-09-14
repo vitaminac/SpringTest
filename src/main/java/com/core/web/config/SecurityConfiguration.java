@@ -18,11 +18,10 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
 
-import static com.core.web.util.RouteConstants.API_ENDPOINT;
 import static com.core.web.util.RouteConstants.LogoutMappingPath;
+import static com.core.web.util.SecurityConstants.CROSS_ORIGIN_DOMAIN;
 import static com.core.web.util.SecurityConstants.FILTER_LOGIN_API;
 import static com.core.web.util.SecurityConstants.FILTER_REGISTER_API;
-import static com.core.web.util.SecurityConstants.FILTER_SERVICE_API;
 import static com.core.web.util.SecurityConstants.FILTER_STATIC_FILES;
 
 @Configuration
@@ -41,8 +40,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .cors().and()
                 .authorizeRequests().antMatchers(HttpMethod.OPTIONS).permitAll().and()
-                .authorizeRequests().mvcMatchers(API_ENDPOINT, FILTER_LOGIN_API, FILTER_REGISTER_API, FILTER_STATIC_FILES).permitAll().and()
-                .authorizeRequests().mvcMatchers(FILTER_SERVICE_API).authenticated().and()
+                .authorizeRequests().mvcMatchers("", FILTER_LOGIN_API, FILTER_REGISTER_API, FILTER_STATIC_FILES).permitAll().and()
+                .authorizeRequests().anyRequest().authenticated().and()
 
                 // TODO: fix this security hole
 //                .csrf().ignoringAntMatchers(API_ENDPOINT + REGISTER_ENDPOINT).and()
@@ -80,7 +79,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     CorsConfigurationSource corsConfigurationSource() {
         // TODO: configure
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("*"));
+        configuration.setAllowedOrigins(Arrays.asList(CROSS_ORIGIN_DOMAIN));
         configuration.setAllowedMethods(Arrays.asList("*"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         // configuration.setAllowCredentials(true);

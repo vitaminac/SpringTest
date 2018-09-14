@@ -15,7 +15,7 @@ import javax.persistence.OneToOne;
 @ToString(callSuper = true)
 public class Video extends Resource {
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "uploader")
+    @JoinColumn(name = "uploader") // TODO: trt to remove this
     @JsonIgnore
     private User uploader;
 

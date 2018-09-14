@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.core.web.util.RouteConstants.API_ENDPOINT;
 import static com.core.web.util.RouteConstants.LOGIN_ENDPOINT;
 import static com.core.web.util.RouteConstants.LogoutMappingPath;
 import static com.core.web.util.RouteConstants.MatchesAllPath;
@@ -37,7 +36,7 @@ public class DefaultController {
         return RouteConstants.ForwardToRootPath;
     }
 
-    @GetMapping(value = API_ENDPOINT)
+    @GetMapping
     @ResponseBody
     public Map<String, String> navigation() {
         return API_MAP;

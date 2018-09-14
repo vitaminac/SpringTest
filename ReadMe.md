@@ -69,6 +69,7 @@
         * Redis - Session
         * [Tomcat](http://tomcat.apache.org/) (War Deployment)
         * Nginx - Serving Static Content Under Http Context
+            * setting up /api prefix for service
         * Node.js As Frontend
         * DBMS
             * Create a database and create a role at init

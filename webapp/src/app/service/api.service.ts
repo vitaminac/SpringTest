@@ -38,6 +38,6 @@ export class ApiService {
   }
 
   async load(): Promise<any> {
-    return this.http.get("/").pipe(map((data) => this.api = data)).toPromise();
+    return this.http.get(AppConfig.API_ENDPOINT).pipe(map((data) => this.api = data)).toPromise();
   }
 }
