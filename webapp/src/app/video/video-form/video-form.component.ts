@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../service/api.service";
 import {NzMessageService, UploadFile} from "ng-zorro-antd";
-import {VideoDTO} from "../videoDTO";
+import {VideoDto} from "../video.dto";
 import {UtilsService} from "../../service/utils.service";
 import {AppConfig} from "../../config/app.config";
 
@@ -14,7 +14,7 @@ export class VideoFormComponent implements OnInit {
   uploading: boolean = false;
   coverUrl: string;
   loading = false;
-  model: VideoDTO;
+  model: VideoDto;
   cover: File;
   video: File;
 
@@ -29,7 +29,7 @@ export class VideoFormComponent implements OnInit {
   }
 
   reset() {
-    this.model = new VideoDTO(null, null, null, null, null, null);
+    this.model = new VideoDto(null, null, null, null, null, null);
   }
 
   submit() {

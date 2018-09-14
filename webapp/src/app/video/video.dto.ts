@@ -1,4 +1,4 @@
-export class VideoDTO { // TODO: rename to video.dto.ts
+export class VideoDto {
   constructor(
     public id: number,
     public name: string,

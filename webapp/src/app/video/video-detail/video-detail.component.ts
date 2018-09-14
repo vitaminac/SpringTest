@@ -4,7 +4,7 @@ import {VideoProviderService} from "../video-provider.service";
 import {DPlayerDanmaku, DPlayerVideo} from "dplayer";
 import {Observable} from "rxjs";
 import {map, switchMap} from "rxjs/operators";
-import {VideoDTO} from "../videoDTO";
+import {VideoDto} from "../video.dto";
 import {slideInDownAnimation} from "../../animations";
 
 @Component({
@@ -26,7 +26,7 @@ export class VideoDetailComponent implements OnInit {
   ngOnInit() {
     this.dPlayerArguments$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => this.provider.getVideo(parseInt(params.get('id')))),
-      map((video: VideoDTO) => {
+      map((video: VideoDto) => {
         return {
           dPlayerVideo: {
             url: 'https://pan.prprpr.me/?/dplayer/hikarunara.mp4',

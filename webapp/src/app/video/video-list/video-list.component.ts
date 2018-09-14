@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {VideoDTO} from "../videoDTO";
+import {VideoDto} from "../video.dto";
 import {VideoProviderService} from "../video-provider.service";
 import {Observable} from "rxjs";
 
@@ -9,7 +9,7 @@ import {Observable} from "rxjs";
   styleUrls: ['./video-list.component.css']
 })
 export class VideoListComponent implements OnInit {
-  videos$: Observable<VideoDTO[]>;
+  videos$: Observable<VideoDto[]>;
 
   constructor(private provider: VideoProviderService) {
   }
