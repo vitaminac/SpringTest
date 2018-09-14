@@ -21,4 +21,12 @@ public class Video extends Resource {
 
     @Column
     private String cover;
+
+    public void setCover(String cover) {
+        this.cover = cover;
+    }
+
+    public void setUploader(User uploader) {
+        this.uploader = uploader;
+    }
 }

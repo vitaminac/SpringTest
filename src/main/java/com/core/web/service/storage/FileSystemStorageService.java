@@ -28,7 +28,7 @@ class FileSystemStorageService implements StorageService {
     }
 
     @Override
-    public void store(MultipartFile file) {
+    public String store(MultipartFile file) {
         String filename = StringUtils.cleanPath(file.getOriginalFilename());
         try {
             if (file.isEmpty()) {
@@ -42,6 +42,7 @@ class FileSystemStorageService implements StorageService {
             }
             try (InputStream inputStream = file.getInputStream()) {
                 Files.copy(inputStream, this.storageProperties.getLocation().resolve(filename), StandardCopyOption.REPLACE_EXISTING);
+                return filename;
             }
         } catch (IOException e) {
             throw new StorageException("Failed to store file " + filename, e);

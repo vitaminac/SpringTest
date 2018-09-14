@@ -27,4 +27,8 @@ public class Resource { // TODO: AuditModel
 
     @Column
     private String description;
+
+    public void setUri(String uri) {
+        this.uri = uri;
+    }
 }
