@@ -2,16 +2,19 @@
 * ## Our Goal
     0. [Bilibili Like Danmaku Video Website](https://github.com/WhiteBlue/bilibili-html5)
 
-* ## What we'll do next
+* Incidence
     * 
 
+* ## What we'll do next
+    * fix cover size
+
 * ## TODO List
-    0. Undo refactor name of videoDTO and PUT TODO 
     0. Hook send & receive danmaku api in dPlayer
     0. form that upload new video
     0. Danmuku table, model, controller
     0. [Boostrap Form](https://getbootstrap.com/docs/4.0/components/forms/)
-    0. Create request from map angular, utils service
+    0. [Ant Design Form](https://ng.ant.design/components/form/en)
+    0. Create request from map angular, put it in utils service
     
 * ## Features Request Sorted By Priority 
     1. [Watching Video](https://www.bilibili.com/blackboard/html5player.html)
@@ -53,8 +56,8 @@
     * Karma
     * Logger
     * UI
-        * [Semantic UI](https://semantic-ui.com/)
         * [Official Angular Component UI](https://material.angular.io/)
+        * [Semantic UI](https://semantic-ui.com/)
         * CSS
             [Materialize](https://materializecss.com/)
     * [WebTorrent](https://github.com/webtorrent/webtorrent)
@@ -91,6 +94,7 @@
     * Handle exception in proper layer
     * The component should not have too much awareness of the template details
     * Add prefix /api/ in security AntMatcher
+    * document each web service api
     
 * ## Dev Documentations Sorted By Reference Times
     * Completed Tutorial
