@@ -1,5 +1,3 @@
-import {URL} from "url";
-
 export class AppConfig {
   public static REDIRECT_DELAY: number = 3000;
   // TODO: replace with HATEOA
@@ -21,7 +19,12 @@ export class AppConfig {
   // Http Headers
   public static CONTENT_TYPE: string = "Content-Type";
   public static FORM_DATA: string = "application/form-data";
+  public static JSON: string = "application/json";
 
   public static NOTIFICATION_DISPLAY_SPAN_MILLISECOND = 5000;
   public static TIME_SPAN_BETWEEN_NOTIFICATION_MILLISECOND = 3000;
+
+  // File Type
+  public static JPEG = "image/jpeg";
+  public static MP4 = "video/mp4";
 }

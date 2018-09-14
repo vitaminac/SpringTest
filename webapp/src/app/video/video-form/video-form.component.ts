@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../service/api.service";
 import {NzMessageService, UploadFile} from "ng-zorro-antd";
 import {VideoDTO} from "../videoDTO";
+import {UtilsService} from "../../service/utils.service";
+import {AppConfig} from "../../config/app.config";
 
 @Component({
   selector: 'app-video-upload',
@@ -9,20 +11,30 @@ import {VideoDTO} from "../videoDTO";
   styleUrls: ['./video-form.component.css']
 })
 export class VideoFormComponent implements OnInit {
-  submitted: boolean = false;
+  uploading: boolean = false;
   coverUrl: string;
   loading = false;
-  name: string;
+  model: VideoDTO;
+  cover: File;
+  video: File;
+
 
   constructor(private api: ApiService,
-              private msg: NzMessageService) {
+              private msg: NzMessageService,
+              private utils: UtilsService) {
   }
 
   ngOnInit() {
+    this.reset();
+  }
+
+  reset() {
+    this.model = new VideoDTO(null, null, null, null, null, null);
   }
 
   submit() {
-    this.submitted = true;
+    this.uploading = true;
+    this.utils.postForm(this.api.VideoApi, {cover: this.cover, video: this.video}, this.model).subscribe(() => this.uploading = false);
   }
 
   get imageApi() {
@@ -31,8 +43,8 @@ export class VideoFormComponent implements OnInit {
     // return this.api.ImageApi;
   }
 
-  onBeforeUploadCover(file: File) {
-    const isJPG = file.type === 'image/jpeg';
+  onBeforeUploadCover = (file: File) => {
+    const isJPG = file.type === AppConfig.JPEG;
     if (!isJPG) {
       this.msg.error('You can only upload JPG file!');
     }
@@ -40,28 +52,27 @@ export class VideoFormComponent implements OnInit {
     if (!isLt2M) {
       this.msg.error('Image must smaller than 2MB!');
     }
-    return isJPG && isLt2M;
-  }
 
-  // TODO: move to util
-  private getBase64(img: File, callback: (img: {}) => void): void {
-    const reader = new FileReader();
-    reader.addEventListener('load', () => callback(reader.result));
-    reader.readAsDataURL(img);
-  }
-
-  onCoverChange(info: { file: UploadFile }) {
-    // TODO: nzChange, remove $event
-    if (info.file.status === 'uploading') {
-      this.loading = true;
-      return;
-    }
-    if (info.file.status === 'done') {
-      // Get this url from response in real world.
-      this.getBase64(info.file.originFileObj, (img: string) => {
-        this.loading = false;
-        this.coverUrl = img;
+    if (isJPG && isLt2M) {
+      this.utils.convertFileToBase64(file, (content: string) => {
+        this.coverUrl = content;
       });
+      this.cover = file;
     }
+    return false;
+  };
+
+  onBeforeUploadVideo = (file: File) => {
+    // TODO check is media type
+    if (file.type !== AppConfig.MP4) {
+      this.msg.error('For now we only intent to support mp4!');
+    } else {
+      this.video = file;
+    }
+    return false;
+  };
+
+  get isValid(): boolean {
+    return true; // TODO
   }
 }

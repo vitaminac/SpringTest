@@ -1,31 +1,42 @@
-<form>
+<form #newVideo (submit)="submit()">
+
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="model.name" required>
+  </div>
+
   <fieldset>
     <legend>Upload your first video:</legend>
 
-    <div class="form-group" id="newVideo">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" id="name" name="name" [ngModel]="name" required>
+    <div class="cover-uploader form-group">
+      <div class="ant-upload ant-upload-select-picture-card ant-upload-select">
+        <input #coverUploader type="file" style="display: none;" accept="image/png, image/jpeg"
+               (change)="onBeforeUploadCover(coverUploader.files[0])"
+               required/>
+        <div class="ant-upload" (click)="coverUploader.click()">
+          <ng-container *ngIf="!coverUrl">
+            <i class="anticon anticon-plus"></i>
+            <div class="ant-upload-text">Upload</div>
+          </ng-container>
+          <img *ngIf="coverUrl" [src]="coverUrl" class="avatar">
+        </div>
+      </div>
     </div>
-
-    <nz-upload class="avatar-uploader"
-               [nzAction]="imageApi"
-               nzName="image"
-               nzListType="picture-card"
-               [nzShowUploadList]="false"
-               [nzBeforeUpload]="onBeforeUploadCover"
-               (nzChange)="onCoverChange($event)">
-      <ng-container *ngIf="!coverUrl">
-        <i class="anticon anticon-plus"></i>
-        <div class="ant-upload-text">Upload</div>
-      </ng-container>
-      <img *ngIf="coverUrl" [src]="coverUrl" class="avatar">
-    </nz-upload>
 
     <div class="form-group">
-      <label for="description">Description</label>
-      <textarea type="text" class="form-control" id="description" form="newVideo"></textarea>
+      <input #videoUploader type="file" style="display: none;" accept="video/mp4"
+             (change)="onBeforeUploadVideo(videoUploader.files[0])"
+             required/>
+      <button type="button" class="ant-btn" (click)="videoUploader.click()">
+        <i class="anticon anticon-upload"></i><span>Click to Upload</span>
+      </button>
     </div>
-
-    <button type="submit" class="btn btn-success" (submit)="submit()">Submit</button>
   </fieldset>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea type="text" class="form-control" id="description" name="description" [(ngModel)]="model.description"></textarea>
+  </div>
+
+  <button nz-button type="submit" class="btn btn-success" [disabled]="!isValid" [nzLoading]="uploading">Submit</button>
 </form>
