@@ -2,7 +2,6 @@ package com.core.web.controller;
 
 import com.core.web.error.storage.StorageFileNotFoundException;
 import com.core.web.service.storage.StorageService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +22,6 @@ import static com.core.web.util.RouteConstants.FILES_API;
 public class FileUploadController {
     private final StorageService storageService;
 
-    @Autowired
     public FileUploadController(StorageService storageService) {
         this.storageService = storageService;
     }

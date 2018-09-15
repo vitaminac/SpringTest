@@ -1,9 +1,8 @@
 package com.core.web.service.user;
 
+import com.core.web.dao.repository.UserRepository;
 import com.core.web.error.UserNotFoundException;
 import com.core.web.model.User;
-import com.core.web.dao.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -17,7 +16,6 @@ import static org.springframework.security.core.userdetails.User.withUsername;
 public class UserServiceImpl implements UserService {
     private UserRepository repo;
 
-    @Autowired
     public UserServiceImpl(UserRepository repo) {
         this.repo = repo;
     }

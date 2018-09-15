@@ -2,7 +2,6 @@ package com.core.web.service.storage;
 
 import com.core.web.error.storage.StorageException;
 import com.core.web.error.storage.StorageFileNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
@@ -21,7 +20,6 @@ import java.util.stream.Stream;
 class FileSystemStorageService implements StorageService {
     private final StorageProperties storageProperties;
 
-    @Autowired
     public FileSystemStorageService(StorageProperties properties) {
         this.storageProperties = properties;
         this.init();

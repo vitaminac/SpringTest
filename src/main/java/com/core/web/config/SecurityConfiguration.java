@@ -1,7 +1,6 @@
 package com.core.web.config;
 
 import com.core.web.service.user.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -29,7 +28,6 @@ import static com.core.web.util.SecurityConstants.FILTER_STATIC_FILES;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private UserDetailsService userDetailsService;
 
-    @Autowired
     public SecurityConfiguration(UserService userService) {
         this.userDetailsService = userService;
     }
