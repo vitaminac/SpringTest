@@ -6,17 +6,22 @@
     * 
 
 * ## What we'll do next
-    * play video from uri
+    * Danmuku table, model, controller
 
 * ## TODO List
-    0. Hook send & receive danmaku api in dPlayer
-    0. Danmuku table, model, controller
-    0. [Boostrap Form](https://getbootstrap.com/docs/4.0/components/forms/)
-    0. [Ant Design Form](https://ng.ant.design/components/form/en)
+    
+    
     0. Create request from map angular, put it in utils service
     0. fix cover size
+    0. delete file when delete video record
     
 * ## Features Request Sorted By Priority 
+    0. Upload danmaku
+        0. Hook send & receive danmaku api in dPlayer
+    0. Refactor form
+        0. Refactor Login Form using Ant Design demo
+            0. [Ant Design Form](https://ng.ant.design/components/form/en)
+        0. [Boostrap Form](https://getbootstrap.com/docs/4.0/components/forms/)
     1. [Watching Video](https://www.bilibili.com/blackboard/html5player.html)
     2. [Library Component](https://www.bilibili.com/anime/index)
         * Filter with query params
@@ -30,15 +35,12 @@
         * [Resource Component]
     0. [Cover Flow](http://jabbany.github.io/ABPlayerHTML5/build/demos/coverflow.html) jquery plugin
     0. [Live Comment (Danmaku) Engine](https://github.com/jabbany/CommentCoreLibrary)
-    3. Upload video
     4. Upload subtitle
-    5. Upload danmaku
     6. Header Image
     0. Angular Modal
     0. OAuth
-    7. [Live Video Streaming (直播)](https://www.bilibili.com/blackboard/live/live-activity-h5-player.html?cid=46936&type=room)
+    7. [Live Video Streaming](https://www.bilibili.com/blackboard/live/live-activity-h5-player.html?cid=46936&type=room)
     8. Lazy Load Image
-    9. Add BL Layer And Dao Layer
     10. RememberMe
     11. Encrypt Password
     0. Allow Request With Wrong Credentials to Non-Authentication-Require-Endpoint
@@ -49,14 +51,15 @@
     0. Video tap go forward o back like YouTube in mobile
     0. CRUD that create CRUD
     0. Replace path const in web app with hateo
-    0. Automatically add prefix in antMatcher
     0. Identify where and which design pattern we have used
     
 * ## Future Components
     * Spring HATEOAS
-    * Spring Testing
     * Karma
     * Logger
+    * Testing
+        * [Selenium](https://www.seleniumhq.org/)
+        * Spring Testing
     * UI
         * [Official Angular Component UI](https://material.angular.io/)
         * [Semantic UI](https://semantic-ui.com/)
@@ -152,8 +155,6 @@
     * [Media & Video Transcoding In Cloud](https://aws.amazon.com/elastictranscoder/?nc1=h_ls)
 
 * ## Useful Tips
-    * Spring
-        * @RequestParam, Query Param
     * Angular
         * Router
             * Router event subscript
@@ -164,7 +165,8 @@
                 * Filter Page
             * RouterLinkActive
                 * The directive for adding/removing classes from an HTML element when an associated routerLink contained on or inside the element becomes active/inactive.
-            * @Output
+            * Router navigate pass map result in 
+        * @Output
         * Unclassified
             * [To force change detection](https://stackoverflow.com/a/35106069/9980245)
                 * [ApplicationRef.tick()](https://angular.io/api/core/ApplicationRef#tick)
@@ -187,8 +189,7 @@
     * Spring
         * @Slf4j
             * Lombok annotation to autocreate an Slf4j-based LoggerFactory as log
-        * @Bean CommandLineRunner
-            * Spring Boot will run ALL CommandLineRunner beans once the application context is loaded.
+        * @RequestParam, Query Param
     * CSS
         * position: sticky 
     * Hibernate
