@@ -52,7 +52,7 @@ public class FileUploadController {
 //        redirectAttributes.addFlashAttribute("message",
 //                "You successfully uploaded " + file.getOriginalFilename() + "!");
 
-        return FILES_API + storageService.store(file);
+        return FILES_API + "/" + storageService.store(file);
     }
 
     @ExceptionHandler(StorageFileNotFoundException.class)
