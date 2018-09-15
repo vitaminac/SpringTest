@@ -17,6 +17,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
+import static com.core.web.util.RouteConstants.REDIRECT;
 import static com.core.web.util.RouteConstants.VIDEO_API;
 
 @RestController
@@ -53,8 +54,8 @@ public class VideoController {
                                         @RequestPart @Valid @NotNull @NotBlank MultipartFile cover,
                                         @RequestPart Video model) {
         // TODO: we need to be able to delete image and video
-        model.setUri(this.fileUploadRestApi.handleFileUpload(video));
-        model.setCover(this.fileUploadRestApi.handleFileUpload(cover));
+        model.setUri(this.fileUploadRestApi.handleFileUpload(video).substring(REDIRECT.length()));
+        model.setCover(this.fileUploadRestApi.handleFileUpload(cover).substring(REDIRECT.length()));
         model = this.service.save(model);
         return ResponseEntity.ok().body(model);
     }

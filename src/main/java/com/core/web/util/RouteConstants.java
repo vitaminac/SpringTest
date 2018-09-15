@@ -10,4 +10,6 @@ public class RouteConstants {
     public static final String TEST_PATH = "/test";
     public static final String VIDEO_API = "/videos";
     public static final String FILES_API = "/files";
+
+    public static final String REDIRECT = "redirect:";
 }

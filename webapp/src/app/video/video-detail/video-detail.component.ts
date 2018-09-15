@@ -29,9 +29,9 @@ export class VideoDetailComponent implements OnInit {
       map((video: VideoDto) => {
         return {
           dPlayerVideo: {
-            url: 'https://pan.prprpr.me/?/dplayer/hikarunara.mp4',
-            pic: 'https://moeplayer.b0.upaiyun.com/dplayer/hikarunara.png',
-            thumbnails: 'https://moeplayer.b0.upaiyun.com/dplayer/hikarunara_thumbnails.jpg'
+            url: video.uri,
+            pic: video.cover,
+            thumbnails: video.cover
           },
           danmaku: {
             id: '9E2E3368B56CDBB4',

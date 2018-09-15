@@ -14,14 +14,15 @@ import org.springframework.security.util.InMemoryResource;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static com.core.web.util.Constants.HOST;
 import static com.core.web.util.RouteConstants.FILES_API;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.BDDMockito.then;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.fileUpload;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
@@ -51,12 +52,12 @@ public class FileUploadControllerTest {
 
     @Test
     public void shouldSaveUploadedFile() throws Exception {
-        MockMultipartFile multipartFile = new MockMultipartFile("file", "test.txt", "text/plain", "Spring Framework".getBytes());
+        String filename = "test.txt";
+        MockMultipartFile multipartFile = new MockMultipartFile("file", filename, "text/plain", "Spring Framework".getBytes());
+        given(this.storageService.store(multipartFile)).willReturn("test.txt");
         this.mvc.perform(fileUpload(FILES_API).file(multipartFile))
-                // .andExpect(status().isFound())
-                .andExpect(status().isOk());
-//                .andExpect(header().string("Location", "/"));
-        then(this.storageService).should().store(multipartFile);
+                .andExpect(status().isFound())
+                .andExpect(header().string("Location", HOST + FILES_API + "/" + filename));
     }
 
     @Test
