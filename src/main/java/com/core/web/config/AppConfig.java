@@ -1,6 +1,8 @@
 package com.core.web.config;
 
 import com.core.web.dao.repository.ResourceRepository;
+import com.core.web.dao.repository.UserRepository;
+import com.core.web.model.User;
 import com.core.web.service.storage.StorageProperties;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -24,8 +26,12 @@ public class AppConfig {
     }
 
     @Bean
-    public CommandLineRunner prepare(ResourceRepository repository, StorageProperties properties) {
+    public CommandLineRunner prepare(ResourceRepository resourceRepository, StorageProperties properties, UserRepository userRepository) {
         return args -> {
+            final User user = new User();
+            user.setUsername("demo");
+            user.setPassword("demo123");
+            userRepository.save(user);
 //            repository.deleteAll();
 //            Files.walk(properties.getLocation()).forEach(path -> {
 //                try {

@@ -17,12 +17,17 @@ import static com.core.web.util.PersistenceConstants.UserTableName;
 public class User { // TODO: implement UserDetail and add column role
     @Id
     private String username;
+
     @JsonIgnore
     @Column(nullable = false)
     private String password;
 
     public String getUsername() {
         return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @JsonIgnore
