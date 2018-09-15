@@ -6,15 +6,15 @@
     * 
 
 * ## What we'll do next
-    * fix cover size
+    * play video from uri
 
 * ## TODO List
     0. Hook send & receive danmaku api in dPlayer
-    0. form that upload new video
     0. Danmuku table, model, controller
     0. [Boostrap Form](https://getbootstrap.com/docs/4.0/components/forms/)
     0. [Ant Design Form](https://ng.ant.design/components/form/en)
     0. Create request from map angular, put it in utils service
+    0. fix cover size
     
 * ## Features Request Sorted By Priority 
     1. [Watching Video](https://www.bilibili.com/blackboard/html5player.html)
@@ -28,13 +28,15 @@
             * Export only a single component
         * Backend API /api/video/type
         * [Resource Component]
+    0. [Cover Flow](http://jabbany.github.io/ABPlayerHTML5/build/demos/coverflow.html) jquery plugin
+    0. [Live Comment (Danmaku) Engine](https://github.com/jabbany/CommentCoreLibrary)
     3. Upload video
     4. Upload subtitle
     5. Upload danmaku
     6. Header Image
     0. Angular Modal
     0. OAuth
-    7. Live Video Streaming (直播)
+    7. [Live Video Streaming (直播)](https://www.bilibili.com/blackboard/live/live-activity-h5-player.html?cid=46936&type=room)
     8. Lazy Load Image
     9. Add BL Layer And Dao Layer
     10. RememberMe
@@ -146,6 +148,9 @@
     * Session Fixation
     * SQL Injection
 
+* ## Deployment
+    * [Media & Video Transcoding In Cloud](https://aws.amazon.com/elastictranscoder/?nc1=h_ls)
+
 * ## Useful Tips
     * Spring
         * @RequestParam, Query Param
@@ -174,6 +179,11 @@
                     * distinctUntilChanged(), // ignore new term if same as previous term
                     * switchMap((term: string) => this.heroService.searchHeroes(term)), // switch to new search observable each time the term changes
             * ng generate class Hero
+        * Form
+            * The control has been visited.     ng-touched	ng-untouched
+            * The control's value has changed.  ng-dirty	ng-pristine
+            * The control's value is valid.	    ng-valid	ng-invalid
+            * Key event filtering key.enter link
     * Spring
         * @Slf4j
             * Lombok annotation to autocreate an Slf4j-based LoggerFactory as log
