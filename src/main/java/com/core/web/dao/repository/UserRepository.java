@@ -1,4 +1,4 @@
-package com.core.web.repository;
+package com.core.web.dao.repository;
 
 import com.core.web.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;

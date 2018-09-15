@@ -2,7 +2,7 @@ package com.core.web.controller;
 
 import com.core.web.error.ResourceNotFoundException;
 import com.core.web.model.Video;
-import com.core.web.service.VideoService;
+import com.core.web.service.video.VideoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.security.Principal;
 import java.util.List;
 
 import static com.core.web.util.RouteConstants.VIDEO_API;
@@ -50,14 +49,13 @@ public class VideoController {
      * @return
      */
     @PostMapping
-    public ResponseEntity<Video> create(Principal principal,
-                                        @RequestPart @Valid @NotNull @NotBlank MultipartFile video,
+    public ResponseEntity<Video> create(@RequestPart @Valid @NotNull @NotBlank MultipartFile video,
                                         @RequestPart @Valid @NotNull @NotBlank MultipartFile cover,
                                         @RequestPart Video model) {
         // TODO: we need to be able to delete image and video
         model.setUri(this.fileUploadRestApi.handleFileUpload(video));
         model.setCover(this.fileUploadRestApi.handleFileUpload(cover));
-        model = this.service.create(model);
+        model = this.service.save(model);
         return ResponseEntity.ok().body(model);
     }
 }

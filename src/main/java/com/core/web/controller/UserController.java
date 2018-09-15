@@ -1,7 +1,7 @@
 package com.core.web.controller;
 
 import com.core.web.model.User;
-import com.core.web.repository.UserRepository;
+import com.core.web.dao.repository.UserRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

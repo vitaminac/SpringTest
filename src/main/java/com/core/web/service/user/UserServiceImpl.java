@@ -2,7 +2,7 @@ package com.core.web.service.user;
 
 import com.core.web.error.UserNotFoundException;
 import com.core.web.model.User;
-import com.core.web.repository.UserRepository;
+import com.core.web.dao.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
