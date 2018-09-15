@@ -4,17 +4,16 @@ import {NzMessageService, UploadFile} from "ng-zorro-antd";
 import {VideoDto} from "../video.dto";
 import {UtilsService} from "../../service/utils.service";
 import {AppConfig} from "../../config/app.config";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-video-upload',
   templateUrl: './video-form.component.html',
   styleUrls: ['./video-form.component.css']
 })
-export class VideoFormComponent implements OnInit {
+export class VideoFormComponent {
   uploading: boolean = false;
   coverUrl: string;
-  loading = false;
-  model: VideoDto;
   cover: File;
   video: File;
 
@@ -24,17 +23,16 @@ export class VideoFormComponent implements OnInit {
               private utils: UtilsService) {
   }
 
-  ngOnInit() {
-    this.reset();
-  }
-
-  reset() {
-    this.model = new VideoDto(null, null, null, null, null, null);
-  }
-
-  submit() {
+  submit(model) {
     this.uploading = true;
-    this.utils.postForm(this.api.VideoApi, {cover: this.cover, video: this.video}, this.model).subscribe(() => this.uploading = false);
+    this.utils.postForm(this.api.VideoApi, {cover: this.cover, video: this.video}, model).subscribe((event) => {
+        this.uploading = false;
+        this.msg.success('upload successfully.');
+      },
+      err => {
+        this.uploading = false;
+        this.msg.error('upload failed.');
+      });
   }
 
   get imageApi() {
@@ -43,36 +41,26 @@ export class VideoFormComponent implements OnInit {
     // return this.api.ImageApi;
   }
 
-  onBeforeUploadCover = (file: File) => {
-    const isJPG = file.type === AppConfig.JPEG;
-    if (!isJPG) {
-      this.msg.error('You can only upload JPG file!');
-    }
-    const isLt2M = file.size / 1024 / 1024 < 2;
-    if (!isLt2M) {
-      this.msg.error('Image must smaller than 2MB!');
-    }
-
-    if (isJPG && isLt2M) {
+  onCoverChange = (file: File) => {
+    if (file.size / 1024 / 1024 < 2) { // TODO: Angular input validation
       this.utils.convertFileToBase64(file, (content: string) => {
         this.coverUrl = content;
       });
       this.cover = file;
-    }
-    return false;
-  };
-
-  onBeforeUploadVideo = (file: File) => {
-    // TODO check is media type
-    if (file.type !== AppConfig.MP4) {
-      this.msg.error('For now we only intent to support mp4!');
     } else {
-      this.video = file;
+      this.msg.error('Image must smaller than 2MB!');
     }
-    return false;
   };
 
-  get isValid(): boolean {
-    return true; // TODO
+  get allowCoverType(): string {
+    return [AppConfig.JPEG, AppConfig.PNG].join(";");
   }
+
+  get allowVideoType(): string {
+    return AppConfig.MP4;
+  }
+
+  onVideoChange(file: File) {
+    this.video = file;
+  };
 }

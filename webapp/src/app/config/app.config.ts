@@ -23,5 +23,6 @@ export class AppConfig {
 
   // File Type
   public static JPEG = "image/jpeg";
+  public static PNG = "image/png";
   public static MP4 = "video/mp4";
 }
