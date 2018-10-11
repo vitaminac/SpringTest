@@ -2,15 +2,13 @@
 * ## Our Goal
     0. [Bilibili Like Danmaku Video Website](https://github.com/WhiteBlue/bilibili-html5)
 
-* Incidence
+* ## Incidence
     * 
 
 * ## What we'll do next
     * Danmuku table, model, controller
 
 * ## TODO List
-    
-    
     0. Create request from map angular, put it in utils service
     0. fix cover size
     0. delete file when delete video record
@@ -52,6 +50,9 @@
     0. CRUD that create CRUD
     0. Replace path const in web app with hateo
     0. Identify where and which design pattern we have used
+    0. Content Security Policy (CSP)  - script and resource
+    0. Lazy Loading Scripts and Styles in Angular
+    0. allow SWF(game) and FLV
     
 * ## Future Components
     * Spring HATEOAS
@@ -68,6 +69,8 @@
     * [WebTorrent](https://github.com/webtorrent/webtorrent)
     * [Socket.IO](https://socket.io/)
     * [stackedit](https://github.com/benweet/stackedit)
+    * ElasticSearch
+    * Spring Eureka Discovery
     * Angular i18n
     * Semantic Web - Seo
     * Deploy Using [Docker](https://www.docker.com/)
@@ -83,6 +86,7 @@
     * Google Analytics
     * [rawgit](https://rawgit.com/)
     * [Modernizr](https://modernizr.com/)
+    * [Crypto-JS](https://github.com/brix/crypto-js)
     
 * ## Remember
     * [Make Features Service Globally Available](https://angular-2-training-book.rangle.io/handout/modules/feature-modules.html)
@@ -131,6 +135,7 @@
 
 * ## Architecture
     * Server-side
+        * Micro-Service
         * REST API
         * Controller
         * Repository
@@ -142,6 +147,10 @@
         * Controller
         * Service
         * Routing base modular, multi-view design
+
+Dev Ops
+    * Docker
+    * Test Driven Development
         
 * ## Security
     * Https
