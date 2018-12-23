@@ -2,6 +2,7 @@ package com.core.web.util;
 
 public class RouteConstants {
     private RouteConstants() {
+        throw new AssertionError();
     }
 
     public static final String MatchesAllPath = "/{path:[^\\.]+}/**";

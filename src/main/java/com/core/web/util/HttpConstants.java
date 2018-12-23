@@ -2,6 +2,7 @@ package com.core.web.util;
 
 public class HttpConstants {
     private HttpConstants() {
+        throw new AssertionError();
     }
 
     // Headers

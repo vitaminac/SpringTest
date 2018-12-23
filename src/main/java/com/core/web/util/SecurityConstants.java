@@ -6,6 +6,7 @@ import static com.core.web.util.RouteConstants.REGISTER_ENDPOINT;
 
 public class SecurityConstants {
     private SecurityConstants() {
+        throw new AssertionError();
     }
 
     private static final String ALL_INCLUDE_CHILDREN_PATHS = "/**";
