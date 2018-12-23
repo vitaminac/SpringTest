@@ -5,6 +5,9 @@ import static com.core.web.util.RouteConstants.LOGIN_ENDPOINT;
 import static com.core.web.util.RouteConstants.REGISTER_ENDPOINT;
 
 public class SecurityConstants {
+    private SecurityConstants() {
+    }
+
     private static final String ALL_INCLUDE_CHILDREN_PATHS = "/**";
     public static final String CROSS_ORIGIN_DOMAIN = "http://localhost:4200";
     public static final String FILTER_SERVICE_API = ALL_INCLUDE_CHILDREN_PATHS;

@@ -1,6 +1,9 @@
 package com.core.web.util;
 
 public class HttpConstants {
+    private HttpConstants() {
+    }
+
     // Headers
     public static final String AUTHORIZATION = "Authorization";
     public static final String X_REQUESTED_WITH = "X-Requested-With";
