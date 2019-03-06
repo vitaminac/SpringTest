@@ -241,4 +241,8 @@ Dev Ops
         * DTO - It Encapsulate The Communication Between Two Process, e.g. As Parameter Or Return Value
         * CRUD - Create, Read, Update And Delete
         * POJO - Plain Old Java Object
-            
+
+# Help
+
+* [W3Schools Online Web Tutorials](https://www.w3schools.com/)
+* [CSS Tricks](https://css-tricks.com/)
